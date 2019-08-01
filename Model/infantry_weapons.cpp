@@ -1,64 +1,172 @@
 #include "infantry_weapons.h"
 
-OSTR_TYPE Model::EGA_SAR_2::serialization()
-{
-	return serialize(c);
-}
+namespace Model {
 
-void Model::EGA_SAR_2::deserialization(OSTR_TYPE& str)
-{
-	c = deserialize(str);
-}
 
-void Model::EGA_SAR_2::deserialization(std::wistream& stream)
-{
-	c = deserialize(stream);
-}
+	OSTR_TYPE  InfantryWeapons::serialization()
+	{
+		return serialize_charset(*basic, class_id);
+	}
 
-int Model::EGA_SAR_2::calcDP(Defences& def)
-{
-	return 0;
-}
-int Model::EGA_SAR_2::calcnoise()
-{
-	return 0;
-}
-bool Model::EGA_SAR_2::canRetaliate()
-{
-	return c.bulky;
-}
-int Model::EGA_SAR_2::calcdmg(const int force)
-{
-	return (int) ((double)c.amount * ((double)force / 10));
-}
-bool Model::EGA_SAR_2::canReach(const int rng)
-{
-	return c.max_range >= rng;
-}
-bool Model::EGA_SAR_2::canPenetrate(Defences& def)
-{
-	return (c.penetration > def.getArmour(infantry)- 2);
-}
+	void  InfantryWeapons::deserialization(OSTR_TYPE& str)
+	{
+		*basic = deserialize_charset(str);
+	}
 
-double Model::EGA_SAR_2::calcResist(Defences& def)
-{
-	double percent = ((double)def.getResistanse(infantry)) / 100 + (
-		(def.getArmour(infantry) > c.penetration) ? 0.1 : 0);
-	if (percent > 1) percent = 1;
-	return percent;
-}
 
-Model::abs_damage* Model::EGA_SAR_2::fabricate()
-{
-	return new EGA_SAR_2;
-}
+	void  InfantryWeapons::deserialization(std::wistream& stream)
+	{
+		*basic = deserialize_charset(stream);
+	}
 
-Model::EGA_SAR_2::EGA_SAR_2()
-	:c(standard_infantry_weapon_charset({L"SAR-2", 20, false, 5, 0, 1}))
-{
-}
+	int  InfantryWeapons::calcDP(Defences& def)
+	{
+		return 0;
+	}
+	int  InfantryWeapons::calcnoise()
+	{
+		return 0;
+	}
+	bool  InfantryWeapons::canRetaliate()
+	{
+		return basic->bulky;
+	}
+	int  InfantryWeapons::calcdmg(const int force, const bool isAttacking)
+	{
+		return (int)((double)basic->amount * ((double)force / 10));
+	}
+	bool  InfantryWeapons::canReach(const int rng)
+	{
+		return basic->max_range >= rng;
+	}
+	bool  InfantryWeapons::canPenetrate(Defences& def)
+	{
+		return (basic->penetration >= def.getArmour(infantry)-1);
+	}
 
-Model::EGA_SAR_2::EGA_SAR_2(const standard_infantry_weapon_charset& chs)
-{
-	c = chs;
+	double  InfantryWeapons::calcResist(Defences& def)
+	{
+		double percent = ((double)def.getResistanse(infantry)) / 100 + (
+			(def.getArmour(infantry) > basic->penetration) ? 0.1 : 0);
+		if (percent > 1) percent = 1;
+		return percent;
+	}
+	int  InfantryWeapons::damageFortifications(Defences& def, const bool isAttacking)
+	{
+		return 0;
+	}
+	abs_damage* InfantryWeapons::fabricate()
+	{
+		return new InfantryWeapons(basic);
+	}
+
+	int InfantryWeapons::calcIni( const bool isAttacking)
+	{
+		return basic->initiative;
+	}
+
+	InfantryWeapons::InfantryWeapons()
+		: basic(inf_weapon_base(new standard_infantry_weapon_charset))
+	{
+	}
+
+	InfantryWeapons::InfantryWeapons(const inf_weapon_base& b)
+		: basic(inf_weapon_base(new standard_infantry_weapon_charset(*b)))
+	{
+
+	}
+
+	InfantryWeapons::InfantryWeapons(const standard_infantry_weapon_charset& b)
+		: basic(inf_weapon_base(new standard_infantry_weapon_charset(b)))
+	{
+	}
+
+	abs_damage* SniperWeapons::fabricate()
+	{
+		return new SniperWeapons(*basic, sniperDamage, minimumForce);
+	}
+
+	OSTR_TYPE SniperWeapons::serialization()
+	{
+		std::wostringstream wsout(InfantryWeapons::serialization());
+		wsout << sniperDamage << ' ' << minimumForce << ' ';
+		return wsout.str();
+	}
+
+	void SniperWeapons::deserialization(OSTR_TYPE& str)
+	{
+		std::wistringstream wsin(str);
+		InfantryWeapons::deserialization(wsin);
+		wsin >> sniperDamage >> minimumForce;
+	}
+
+	void SniperWeapons::deserialization(std::wistream& stream)
+	{
+		InfantryWeapons::deserialization(stream);
+		stream >> sniperDamage >> minimumForce;
+	}
+
+	int SniperWeapons::calcdmg(const int force, const bool isAttacking)
+	{
+		if (minimumForce >= force)
+		{
+			return InfantryWeapons::calcdmg(force, isAttacking) + 1;
+		}
+		return InfantryWeapons::calcdmg(force, isAttacking);
+	}
+
+	SniperWeapons::SniperWeapons()
+		:InfantryWeapons(), sniperDamage(0), minimumForce(0)
+	{
+
+	}
+
+	SniperWeapons::SniperWeapons(const standard_infantry_weapon_charset& chs, int sD, int mF)
+		: InfantryWeapons(chs), sniperDamage(sD), minimumForce(mF)
+	{}
+	int SubmachWeapons::calcIni(const bool isAttacking)
+	{
+		if (isAttacking)
+			return basic->initiative + 2;
+		return basic->initiative;
+	}
+	abs_damage* SubmachWeapons::fabricate()
+	{
+		return new SubmachWeapons(basic);
+	}
+	OSTR_TYPE SubmachWeapons::serialization()
+	{
+		return InfantryWeapons::serialization();
+	}
+	void SubmachWeapons::deserialization(OSTR_TYPE& str)
+	{
+		InfantryWeapons::deserialization(str);
+	}
+	void SubmachWeapons::deserialization(std::wistream& stream)
+	{
+		InfantryWeapons::deserialization(stream);
+	}
+	int LightMachWeapons::calcdmg(const int force, const bool isAttacking)
+	{
+		if (force >= minimumForce)
+			return basic->amount;
+		return (int)((double)basic->amount * ((double)force / 10));
+	}
+	abs_damage* LightMachWeapons::fabricate()
+	{
+		return new LightMachWeapons(basic, minimumForce);
+	}
+	OSTR_TYPE LightMachWeapons::serialization()
+	{
+		std::wostringstream wsout(InfantryWeapons::serialization());
+		wsout << minimumForce << ' ';
+		return wsout.str();
+	}
+	void LightMachWeapons::deserialization(OSTR_TYPE& str)
+	{
+		std::wistringstream wsin()
+	}
+	void LightMachWeapons::deserialization(std::wistream&)
+	{
+	}
 }
