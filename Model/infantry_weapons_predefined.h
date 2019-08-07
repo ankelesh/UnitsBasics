@@ -24,11 +24,11 @@ namespace Model
 			standard_infantry_weapon_charset({ L"SASMG-3", 6, false, 2, 0, 1, 2 })
 		));
 	const damagePointer EGA_SLMG_1(
-		new InfantryWeapons(
-			standard_infantry_weapon_charset({ L"SLMG-1", 6, false, 2, 0, 1, 5 })
+		new LightMachWeapons(
+			standard_infantry_weapon_charset({ L"SLMG-1", 6, false, 2, 0, 1, 5 }), 4
 		));
 	const damagePointer EGA_SHMG_1(
-		new InfantryWeapons(
+		new HeavyMachWeapons(
 			standard_infantry_weapon_charset({ L"SHMG-1", 6, false, 10, 0, 1, 6 })
 		));
 	//------------PI------------------------------------------------------------------------------------
@@ -41,18 +41,30 @@ namespace Model
 			standard_infantry_weapon_charset({ L"EP-4", 3, false, 2, 0, 1, 10 }), 1, 2
 		));
 	const damagePointer PI_BI_6(
-		new InfantryWeapons(
-			standard_infantry_weapon_charset({ L"BI-6", 5, false, 2, 0, 1, 4 })
+		new LightMachWeapons(
+			standard_infantry_weapon_charset({ L"BI-6", 5, false, 2, 0, 1, 4 }), 5
 		));
 	//------------RE------------------------------------------------------------------------------------
 	const damagePointer RE_SMG_14mm(
-		new InfantryWeapons(
+		new SubmachWeapons(
 			standard_infantry_weapon_charset({ L"SMG 14mm", 7, false, 10, 0, 1, 1 })
 		));
 	const damagePointer RE_SMG_16mm(
-		new InfantryWeapons(
+		new SubmachWeapons(
 			standard_infantry_weapon_charset({ L"SMG 16mm", 8, false, 15, 0, 1, 1 })
 		));
+	const damagePointer RE_SLR_25mm(
+		new RockInfantryWeapons(
+			standard_infantry_weapon_charset({ L"SLR 25mm", 20, false, 40, 0, 1, 7 })
+		));
+	const damagePointer RE_AR_20mm(
+		new RockInfantryWeapons(
+			standard_infantry_weapon_charset({ L"AR 20mm", 20, false, 30, 0, 1, 8 })
+		));
+	const damagePointer RE_SR_35mm(
+		new RockSniperWeapons(
+			standard_infantry_weapon_charset({ L"SR 35mm", 5, false, 60, 0, 1, 9 })
+			, 1, 4));
 	//------------CR-----------------------------------------------------------------------------------
 	const damagePointer CR_MU_SB(
 		new InfantryWeapons(
@@ -70,21 +82,4 @@ namespace Model
 
 
 
-	////----------------------EGA------------------------------------------------------------------------
-	//extern const damagePointer EGA_SAR_2; // АК-2 основное оружие десанта
-	//extern const damagePointer EGA_SSR_2;	// СВ-2 снайперская винтовка
-	//extern const damagePointer EGA_SASMG_3; // ШПП-3 штурмовой ПП
-	//extern const damagePointer EGA_SLMG_1;  // РП-1 ручной пулемёт
-	//extern const damagePointer EGA_SHMG_1;  // СП-1 станковый пулемёт
-	////----------------------PI-------------------------------------------------------------------------
-	//extern const damagePointer PI_AW_8;  // АГ-8 основное оружие пехоты
-	//extern const damagePointer PI_EP_4;	// ВП-4 снайперская винтовка
-	//extern const damagePointer PI_BI_6;   // КН-6 ручной пулемёт
-	////----------------------RE-------------------------------------------------------------------------
-	//extern const damagePointer RE_SMG_14mm;	// ПП-14мм, самое лёгкое оружие
-	//extern const damagePointer RE_SMG_16mm;  
-	////----------------------CR--------------------------------------------------------------------------
-	//extern const damagePointer CR_MU_SB;
-	//extern const damagePointer CR_MU_TH;
-	//extern const damagePointer CR_NP;
 }

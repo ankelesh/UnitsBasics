@@ -91,6 +91,8 @@ namespace Model {
 		const int class_id = 2;
 		SniperWeapons();
 		SniperWeapons(const standard_infantry_weapon_charset&, int sD, int mF);
+		SniperWeapons(const inf_weapon_base& b, int sD, int mF) :
+			InfantryWeapons(b), sniperDamage(sD), minimumForce(mF) {};
 	};
 
 	class SubmachWeapons : public InfantryWeapons
@@ -121,5 +123,42 @@ namespace Model {
 		LightMachWeapons() : InfantryWeapons(), minimumForce(0) {};
 		LightMachWeapons(const standard_infantry_weapon_charset& b, int mF) : InfantryWeapons(b), minimumForce(mF) {};
 		LightMachWeapons(const inf_weapon_base& b, int mF) : InfantryWeapons(b), minimumForce(mF) {};
+	};
+	class HeavyMachWeapons : public InfantryWeapons
+	{
+	protected:
+		virtual int calcIni(const bool) override;
+		abs_damage* fabricate() override;
+	public:
+		const int class_id = 5;
+		HeavyMachWeapons() : InfantryWeapons() {};
+		HeavyMachWeapons(const standard_infantry_weapon_charset& b) : InfantryWeapons(b) {};
+		HeavyMachWeapons(const inf_weapon_base& b) : InfantryWeapons(b) {};
+	};
+	class RockInfantryWeapons : public InfantryWeapons
+	{
+	protected:
+		virtual int calcnoise() override;	
+		virtual double calcResist(Defences&) override;	
+		virtual abs_damage* fabricate()override;
+		virtual bool canPenetrate(Defences&) override;
+	public:
+		const int class_id = 6;
+		RockInfantryWeapons() : InfantryWeapons() {};
+		RockInfantryWeapons(const standard_infantry_weapon_charset& b) : InfantryWeapons(b) {};
+		RockInfantryWeapons(const inf_weapon_base& b) : InfantryWeapons(b) {};
+	};
+	class RockSniperWeapons : public SniperWeapons
+	{
+	protected:
+		virtual int calcnoise() override;
+		virtual double calcResist(Defences&);
+		virtual abs_damage* fabricate()override;
+		virtual bool canPenetrate(Defences&) override;
+	public:
+		const int class_id = 7;
+		RockSniperWeapons() : SniperWeapons() {};
+		RockSniperWeapons(const standard_infantry_weapon_charset& b, int sd, int mf) : SniperWeapons(b, sd, mf) {};
+		RockSniperWeapons(const inf_weapon_base& b, int sd, int mf) : SniperWeapons(b, sd, mf) {};
 	};
 }

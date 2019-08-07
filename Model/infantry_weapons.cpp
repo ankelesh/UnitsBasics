@@ -164,9 +164,81 @@ namespace Model {
 	}
 	void LightMachWeapons::deserialization(OSTR_TYPE& str)
 	{
-		std::wistringstream wsin()
+		std::wistringstream wsin(str);
+		InfantryWeapons::deserialization(wsin);
+		wsin >> minimumForce;
 	}
-	void LightMachWeapons::deserialization(std::wistream&)
+	void LightMachWeapons::deserialization(std::wistream& stream)
 	{
+		InfantryWeapons::deserialization(stream);
+		stream >> minimumForce;
 	}
+	int HeavyMachWeapons::calcIni(const bool isAttacking)
+	{
+		if (isAttacking) {
+			return basic->initiative;
+		}
+		else {
+			return basic->initiative + 7;
+		}
+	}
+	abs_damage* HeavyMachWeapons::fabricate()
+	{
+		return new HeavyMachWeapons(*basic);
+	}
+	int RockInfantryWeapons::calcnoise()
+	{
+		return 1;
+	}
+	double RockInfantryWeapons::calcResist(Defences& def)
+	{
+		double Resist = (def.getResistanse(infantry) > def.getResistanse(AP)) ?
+			def.getResistanse(AP) : def.getResistanse(infantry);
+		int Armour = (def.getArmour(infantry) > def.getArmour(AP)) ?
+			def.getArmour(AP) : def.getArmour(infantry);
+		double percent = (Resist) / 100 + (
+			(Armour > basic->penetration) ? 0.1 : 0);
+		if (percent > 1) percent = 1;
+		return percent;
+	}
+	abs_damage* RockInfantryWeapons::fabricate()
+	{
+		return new RockInfantryWeapons(*basic);
+	}
+	bool RockInfantryWeapons::canPenetrate(Defences& def)
+	{
+		return (def.getArmour(infantry) > def.getArmour(AP) )?
+			(def.getArmour(AP) -1 > basic->penetration) : 
+			(def.getArmour(infantry) - 1 > basic->penetration);
+	}
+	
+	int RockSniperWeapons::calcnoise()
+	{
+		return 1;
+	}
+
+	double RockSniperWeapons::calcResist(Defences& def)
+	{
+		double Resist = (def.getResistanse(infantry) > def.getResistanse(AP)) ?
+			def.getResistanse(AP) : def.getResistanse(infantry);
+		int Armour = (def.getArmour(infantry) > def.getArmour(AP)) ?
+			def.getArmour(AP) : def.getArmour(infantry);
+		double percent = (Resist) / 100 + (
+			(Armour > basic->penetration) ? 0.1 : 0);
+		if (percent > 1) percent = 1;
+		return percent;
+	}
+
+	abs_damage* RockSniperWeapons::fabricate()
+	{
+		return new RockSniperWeapons(*basic, sniperDamage, minimumForce);
+	}
+
+	bool RockSniperWeapons::canPenetrate(Defences& def)
+	{
+		return (def.getArmour(infantry) > def.getArmour(AP)) ?
+			(def.getArmour(AP) - 1 > basic->penetration) :
+			(def.getArmour(infantry) - 1 > basic->penetration);
+	}
+
 }
