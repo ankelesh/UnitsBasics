@@ -161,4 +161,9 @@ namespace Model {
 		RockSniperWeapons(const standard_infantry_weapon_charset& b, int sd, int mf) : SniperWeapons(b, sd, mf) {};
 		RockSniperWeapons(const inf_weapon_base& b, int sd, int mf) : SniperWeapons(b, sd, mf) {};
 	};
+	class RockHeavyMachWeapons : public RockInfantryWeapons
+	{
+	protected:
+		
+	};
 }

@@ -158,6 +158,7 @@
     <ClCompile Include="Units.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="abs_unit.h" />
     <ClInclude Include="Model\abs_damage.h" />
     <ClInclude Include="Model\CubeCoords.h" />
     <ClInclude Include="Model\Defences.h" />
