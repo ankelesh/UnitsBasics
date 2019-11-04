@@ -18,6 +18,8 @@ namespace Model
 			на радиус через inRange(), потом рассчитывают countDamage() и makeNoise(). 
 			getInitiative() -> для инициализации PriorityQueue;
 			
+
+		
 		*/
 	protected:
 		const int class_id = 0;
