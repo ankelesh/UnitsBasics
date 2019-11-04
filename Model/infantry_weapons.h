@@ -1,23 +1,31 @@
 #pragma once
 #include "abs_damage.h"
 
+/*
+	Этот файл содержит классы противопехотного вооружения. Основные его свойства:
+	оно практически никогда не шумит, в основном учитывает только Infantry-броню.
+
+
+*/
 namespace Model {
 	using std::unique_ptr;
 
 	struct standard_infantry_weapon_charset
 	{
-		// Базовый набор характеристик для большинства противопехотного
-		OSTR_TYPE name = L"None";
-		int amount = 10;
-		bool bulky = false;
-		int penetration = 2;
-		int min_range = 1;
+		// Базовый набор характеристик для большинства противопехотного оружия
+		OSTR_TYPE name = L"None";	//Название
+		int amount = 10;			// Количество урона которое будет изменяться модификаторами
+		bool bulky = false;			// Неповоротливое оружие не стреляет в ответ
+		int penetration = 2;		// Бронебойность
+		int min_range = 1;			// дистанция досягаемости. 1 - соседние клетки
 		int max_range = 1;
-		int initiative = 1;
+		int initiative = 1;			//инициатива
 	};
-	typedef	unique_ptr<standard_infantry_weapon_charset> inf_weapon_base;
+	typedef	unique_ptr<standard_infantry_weapon_charset> inf_weapon_base;	//	поинтер на пехотное оружие
+	//Функции сериализации
 	OSTR_TYPE static serialize_charset(const standard_infantry_weapon_charset& chs, int clid)
 	{
+		
 		std::wostringstream sout;
 		sout << clid << chs.name << '\n' << ' ' << chs.amount << ' ' << chs.bulky << ' ' <<
 			chs.penetration << ' ' << chs.min_range << ' ' << chs.max_range << ' ' << chs.initiative << ' ';
@@ -52,7 +60,7 @@ namespace Model {
 				характеристик.
 		*/
 	protected:
-		inf_weapon_base basic;
+		inf_weapon_base basic;		// impl - указатель. См. шаблон проектирования impl\pimpl
 		
 		virtual OSTR_TYPE serialization() override;
 		virtual void deserialization(OSTR_TYPE&) override;
@@ -78,9 +86,12 @@ namespace Model {
 
 	class SniperWeapons : public InfantryWeapons
 	{
+		/*
+			Снайперское оружие всегда наносит дополнительный урон если сила отряда не меньше границы
+		*/
 	protected:
-		int sniperDamage;
-		int minimumForce;
+		int sniperDamage;	//	количество нанесённого урона
+		int minimumForce;	//	минимальная сила отряда которая сможет дать снайперам нанести урон
 		abs_damage* fabricate() override;
 
 		virtual OSTR_TYPE serialization() override;
@@ -88,7 +99,7 @@ namespace Model {
 		virtual void deserialization(std::wistream&) override;
 		virtual int calcdmg(const int, const bool)override;	//возвращает amount. 
 	public:
-		const int class_id = 2;
+		const int class_id = 2;	
 		SniperWeapons();
 		SniperWeapons(const standard_infantry_weapon_charset&, int sD, int mF);
 		SniperWeapons(const inf_weapon_base& b, int sD, int mF) :
@@ -97,6 +108,9 @@ namespace Model {
 
 	class SubmachWeapons : public InfantryWeapons
 	{
+		/*
+			Штурмовые ПП стреляют раньше если отряд атакует
+		*/
 	protected:
 		virtual int calcIni(const bool) override;
 		abs_damage* fabricate() override;
@@ -111,8 +125,11 @@ namespace Model {
 	};
 	class LightMachWeapons : public InfantryWeapons
 	{
+		/*
+			Для эффективного использования лёгких пулемётов не нужно иметь полный отряд
+		*/
 	protected:
-		int minimumForce;
+		int minimumForce;	// граница после которой урон начнёт падать
 		virtual int calcdmg(const int, const bool) override;
 		abs_damage* fabricate() override;
 		virtual OSTR_TYPE serialization() override;
@@ -126,6 +143,9 @@ namespace Model {
 	};
 	class HeavyMachWeapons : public InfantryWeapons
 	{
+		/*
+			Тяжёлые станковые пулемёты обладают низкой инициативой при атаке и очень высокой - при обороне 
+		*/
 	protected:
 		virtual int calcIni(const bool) override;
 		abs_damage* fabricate() override;
@@ -137,6 +157,11 @@ namespace Model {
 	};
 	class RockInfantryWeapons : public InfantryWeapons
 	{
+		/*
+			Это базовый класс вооружения Рокской империи. В силу особенностей роков их оружие гораздо 
+			более бронебойное, но менее инициативное и очень шумное.
+			Данный класс выбирает из значений противопехотной и противобронебойной защит минимальное.		
+		*/
 	protected:
 		virtual int calcnoise() override;	
 		virtual double calcResist(Defences&) override;	
@@ -150,6 +175,9 @@ namespace Model {
 	};
 	class RockSniperWeapons : public SniperWeapons
 	{
+		/*
+			Копия снайперского оружия, но с рокскими особенностями
+		*/
 	protected:
 		virtual int calcnoise() override;
 		virtual double calcResist(Defences&);

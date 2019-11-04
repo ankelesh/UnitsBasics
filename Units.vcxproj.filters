@@ -30,6 +30,9 @@
     <ClCompile Include="Model\infantry_weapons.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="Model\infantry_weapons_predefined.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Model\abs_damage.h">
@@ -50,5 +53,12 @@
     <ClInclude Include="abs_unit.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
+    <ClInclude Include="Model\infantry_weapons_predefined.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Race_descr.txt" />
+    <Text Include="Map_descr.txt" />
   </ItemGroup>
 </Project>

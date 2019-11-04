@@ -155,6 +155,7 @@
     <ClCompile Include="Model\Defences.cpp" />
     <ClCompile Include="Model\frontmaps.cpp" />
     <ClCompile Include="Model\infantry_weapons.cpp" />
+    <ClCompile Include="Model\infantry_weapons_predefined.cpp" />
     <ClCompile Include="Units.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -164,6 +165,11 @@
     <ClInclude Include="Model\Defences.h" />
     <ClInclude Include="Model\frontmaps.h" />
     <ClInclude Include="Model\infantry_weapons.h" />
+    <ClInclude Include="Model\infantry_weapons_predefined.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Map_descr.txt" />
+    <Text Include="Race_descr.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
