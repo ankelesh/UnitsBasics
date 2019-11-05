@@ -2,7 +2,10 @@
 #include <iomanip>
 
 namespace Model {
+
+
 	CubeDirections shift(CubeDirections value, int steps)
+		// Сдвигает направление вправо
 	{
 		if (steps >= CubeDirections::None || steps <= (-CubeDirections::None))
 			return value;
@@ -12,6 +15,7 @@ namespace Model {
 		return (CubeDirections)v;
 	}
 	OSTR_TYPE frontAsString(front fr, OSTR_CHTYPE sym)
+		// отладочная конверсия для псевдографики
 	{
 		OSTR_TYPE temp;
 		for (int i = -3; i < fr; ++i)
@@ -21,6 +25,7 @@ namespace Model {
 			return temp;
 	}
 	OSTR_CHTYPE dirAsChar(CubeDirections dir)
+		// отладочная конверсия для псевдографики
 	{
 		switch (dir)
 		{
@@ -39,6 +44,7 @@ namespace Model {
 
 	}
 	frontmaps::frontmaps()
+		// дефолтный конструктор
 	{
 		front* start = defaultState;
 		front* end = defaultState + CubeDirections::None;
@@ -52,6 +58,7 @@ namespace Model {
 		drop();
 	}
 	frontmaps::frontmaps(const CubeDirections dir, std::vector<front> & fondvector)
+	// конструктор из вектора
 	{
 		int vectsize = fondvector.size();
 		if (vectsize < 6)
@@ -75,6 +82,7 @@ namespace Model {
 	}
 
 	frontmaps::frontmaps(const CubeDirections dir, front * fondarray)
+	// конструктор из массива
 	{
 		for (int i = 0; i < 6; ++i)
 		{
@@ -86,6 +94,7 @@ namespace Model {
 	}
 
 	frontmaps::frontmaps(const CubeDirections dir,std::vector<FrontOnDirection>& fondvector)
+	// Конструктор из фронтов-на-направлении
 	{
 		auto start = fondvector.begin();
 		while (start != fondvector.end())
@@ -101,6 +110,7 @@ namespace Model {
 	}
 
 	void frontmaps::operator<<(const int steps)
+		// операторы сдвига вправо\влево
 	{
 		operator>>(-steps);
 	}
@@ -116,6 +126,7 @@ namespace Model {
 		Head = shift(Head, steps);
 	}
 	front & frontmaps::operator[](const CubeDirections dir)
+		// оператор доступа в стиле массивов
 	{
 		if (dir == CubeDirections::None)
 		{
@@ -124,6 +135,7 @@ namespace Model {
 		return currentState[dir];
 	}
 	void frontmaps::operator++()
+		// переводит карту фронтов на следущий уровень
 	{
 		for (int i = 0; i < 6; ++i)
 		{
@@ -132,11 +144,13 @@ namespace Model {
 		}
 	}
 	void frontmaps::drop()
+		// сбрасывает карту фронтов
 	{
 		std::copy(defaultState, defaultState + 6, currentState);
 		Head = defaultHead;
 	}
 	void frontmaps::turn(const CubeDirections dir)
+		// поворачивает карту в нужном направлении
 	{
 		if (Head == dir) return;
 		int steps = (Head > dir) ? Head - dir : Head + dir;
@@ -171,6 +185,7 @@ namespace Model {
 		deserialize(temp);
 	}
 	OSTR_TYPE frontmaps::show()
+		// отладочный метод показывающий карту
 	{
 		std::wostringstream sout;
 		sout.setf(std::ios::right, std::ios::adjustfield);

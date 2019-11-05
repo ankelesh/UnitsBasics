@@ -10,7 +10,7 @@
 
 namespace Model
 {
-	const int MODEL_ABSTRACT_CLASS_ID = 1;
+	const int MODEL_ABSTRACT_CLASS_ID = 1;	// Не помню зачем эта константа тут
 	class abs_damage
 	{
 		/*
@@ -35,7 +35,7 @@ namespace Model
 			Тем не менее, весь функционал класса вынесен в небольшое количество публичных методов
 		*/
 	protected:
-		const int class_id = 0;
+		const int class_id = 0; // Идентификатор класса нужен для того чтобы при десериализации понять какой тип урона хранится в строке
 
 		virtual OSTR_TYPE serialization() = 0;
 		virtual void deserialization(OSTR_TYPE&) = 0;
@@ -69,5 +69,5 @@ namespace Model
 	};
 
 
-	typedef std::unique_ptr<abs_damage> damagePointer;
+	typedef std::unique_ptr<abs_damage> damagePointer;	// этот поинтер предназначен для полиморфного хранения урона
 }

@@ -168,6 +168,7 @@
     <ClInclude Include="Model\infantry_weapons_predefined.h" />
   </ItemGroup>
   <ItemGroup>
+    <Text Include="Current_discussion.txt" />
     <Text Include="Map_descr.txt" />
     <Text Include="Race_descr.txt" />
   </ItemGroup>

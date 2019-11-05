@@ -60,5 +60,6 @@
   <ItemGroup>
     <Text Include="Race_descr.txt" />
     <Text Include="Map_descr.txt" />
+    <Text Include="Current_discussion.txt" />
   </ItemGroup>
 </Project>
