@@ -92,7 +92,6 @@ namespace Model {
 		// получает урон по накопленному количеству и возвращает количество оставшихся уровней начиная С НУЛЯ
 	{
 		int new_amount = amount - hit;
-		int levels_to_decrease = 0;
 		if (new_amount < min) new_amount = min;		// смотрим чтобы не вылететь за минимум
 		
 		if (amount > second_up && new_amount < second_up)

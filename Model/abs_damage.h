@@ -69,5 +69,5 @@ namespace Model
 	};
 
 
-	typedef std::unique_ptr<abs_damage> damagePointer;	// этот поинтер предназначен для полиморфного хранения урона
+	typedef std::shared_ptr<abs_damage> damagePointer;	// этот поинтер предназначен для полиморфного хранения урона
 }
