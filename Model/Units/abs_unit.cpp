@@ -33,8 +33,12 @@ namespace Model {
 		return collectDamage(uptr, isAttacking);
 	}
 
-	const unit_map_view_charset& Model::abs_unit::getViewOfThis()
+	const unit_map_view_charset& Model::abs_unit::getViewOfThis() const
 	{
 		return mapView();
+	}
+	abs_unit* abs_unit::clone()
+	{
+		return fabricate();
 	}
 }

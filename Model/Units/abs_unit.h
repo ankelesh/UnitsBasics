@@ -1,11 +1,10 @@
 #pragma once
 #include <vector>
-#include "Model/Defences.h"
-#include "Model/abs_damage.h"
-#include "Model/frontmaps.h"
-#include "Model/unit_view_charset.h"
+#include "Defences/Defences.h"
+#include "Damage/abs_damage.h"
+#include "Defences/frontmaps.h"
+#include "Charsets/unit_view_charset.h"
 #include <memory>
-#include <iostream>
 
 
 /*
@@ -32,14 +31,15 @@ namespace Model {
 
 		virtual bool takeDamage(unsigned int dmg) = 0;
 		virtual int collectDamage(UnitPointer uptr, bool isAttacking) = 0;
-		virtual const unit_map_view_charset& mapView() =0;
+		virtual const unit_map_view_charset& mapView() const  =0;
+		virtual abs_unit* fabricate() = 0;
 	public:
 		abs_unit();
 		abs_unit(std::wstring nm, unsigned int force, std::vector<damagePointer> w, Defences d, frontmaps f);
 		abs_unit(std::wistream& wsin);
 		bool applyDamageToThis(unsigned int dmg);
 		int countPureDamageTo(UnitPointer uptr, bool isAttacking);
-		const unit_map_view_charset & getViewOfThis();
-
+		const unit_map_view_charset & getViewOfThis() const;
+		abs_unit* clone();
 	};
 }

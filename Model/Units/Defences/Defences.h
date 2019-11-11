@@ -5,7 +5,6 @@
 #define OSTR_CHTYPE wchar_t
 #endif
 #include <vector>
-#include <iostream>
 #include <sstream>
 #include <cmath>
 /*

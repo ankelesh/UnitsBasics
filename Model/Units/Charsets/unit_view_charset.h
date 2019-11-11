@@ -8,7 +8,7 @@ namespace Model {
 		int shaderId;
 		bool isTextured;
 		std::wstring texturePath;
-		unit_map_view_charset(int, int, bool, std::wstring);
+		unit_map_view_charset(int t = 0, int si = 0, bool iT = false, std::wstring nm = L"");
 	};
 	namespace DefaultCharsets {
 		extern const unit_map_view_charset EGA_Infantry_default_charset;

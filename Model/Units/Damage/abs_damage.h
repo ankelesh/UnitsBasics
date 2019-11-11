@@ -4,9 +4,9 @@
 #define OSTR_RETURN return sout.str();
 #define OSTR_CHTYPE wchar_t
 #endif
-#include <iostream>
+#include <string>
 #include <memory>
-#include "Defences.h"
+#include "../Defences/Defences.h"
 
 namespace Model
 {

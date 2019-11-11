@@ -60,7 +60,7 @@ namespace Model {
 	frontmaps::frontmaps(const CubeDirections dir, std::vector<front> & fondvector)
 	// конструктор из вектора
 	{
-		int vectsize = fondvector.size();
+		size_t vectsize = fondvector.size();
 		if (vectsize < 6)
 		{
 			for (int i = 0; i < vectsize; ++i)

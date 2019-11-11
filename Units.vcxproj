@@ -14,7 +14,7 @@
     <ProjectGuid>{0FA5D36F-C8B6-4BCB-BE9C-517A5B945D6E}</ProjectGuid>
     <RootNamespace>Units</RootNamespace>
     <Keyword>QtVS_v301</Keyword>
-    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
     <WindowsTargetPlatformMinVersion>10.0.17763.0</WindowsTargetPlatformMinVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -55,8 +55,9 @@
     <Import Project="$(QtMsBuild)\qt_defaults.props" />
   </ImportGroup>
   <PropertyGroup Label="QtSettings" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <QtInstall>msvcx64</QtInstall>
+    <QtInstall>msvc5.13x64</QtInstall>
     <QtModules>core;gui;widgets</QtModules>
+    <QtLibrarySearchPath>$(QtLibrarySearchPath)</QtLibrarySearchPath>
   </PropertyGroup>
   <PropertyGroup Label="QtSettings" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <QtInstall>msvcx64</QtInstall>
@@ -137,9 +138,10 @@
       <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
       <WarningLevel>Level3</WarningLevel>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>"/MANIFESTDEPENDENCY:type='win32' name='Microsoft.Windows.Common-Controls' version='6.0.0.0' publicKeyToken='6595b64144ccf1df' language='*' processorArchitecture='*'" %(AdditionalOptions)</AdditionalOptions>
       <DataExecutionPrevention>true</DataExecutionPrevention>
@@ -160,29 +162,43 @@
     </ResourceCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Model\Defences.cpp" />
-    <ClCompile Include="Model\infantry_units.cpp" />
-    <ClCompile Include="Model\terrain_view_charset.cpp" />
-    <ClCompile Include="Model\unit_view_charset.cpp" />
+    <ClCompile Include="Controller\SimpliestController.cpp" />
+    <ClCompile Include="Model\Hexbattlefield\Hexagon.cpp" />
+    <ClCompile Include="Model\Hexbattlefield\HexMainMap.cpp" />
+    <ClCompile Include="Model\Hexbattlefield\MapCell.cpp" />
+    <ClCompile Include="Model\Terrains\Charsets\terrain_view_charset.cpp" />
+    <ClCompile Include="Model\Terrains\terrain.cpp" />
+    <ClCompile Include="Model\Units\abs_unit.cpp" />
+    <ClCompile Include="Model\Units\Charsets\unit_view_charset.cpp" />
+    <ClCompile Include="Model\Units\Damage\abs_damage.cpp" />
+    <ClCompile Include="Model\Units\Damage\infantry_weapons.cpp" />
+    <ClCompile Include="Model\Units\Damage\infantry_weapons_predefined.cpp" />
+    <ClCompile Include="Model\Units\Defences\Defences.cpp" />
+    <ClCompile Include="Model\Units\Defences\frontmaps.cpp" />
+    <ClCompile Include="Model\Units\infantry_units.cpp" />
     <ClCompile Include="Units.cpp" />
-    <ClCompile Include="Model\abs_damage.cpp" />
-    <ClCompile Include="Model\abs_unit.cpp" />
-    <ClCompile Include="Model\frontmaps.cpp" />
-    <ClCompile Include="Model\infantry_weapons.cpp" />
-    <ClCompile Include="Model\infantry_weapons_predefined.cpp" />
+    <ClCompile Include="View\FieldWidget.cpp" />
+    <ClCompile Include="View\TerrainPainting\TerrainPaintingFunctions.cpp" />
+    <ClCompile Include="View\UnitPainting\UnitPaintingFunctions.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Model\Hexbattlefield\Hexagon.h" />
+    <ClInclude Include="View\TerrainPainting\TerrainPaintingFunctions.h" />
+    <ClInclude Include="View\UnitPainting\UnitPaintingFunctions.h" />
+    <QtMoc Include="Controller\SimpliestController.h" />
     <ClInclude Include="Model\CubeCoords.h" />
-    <ClInclude Include="Model\Defences.h" />
-    <ClInclude Include="Model\abs_damage.h" />
-    <ClInclude Include="Model\abs_unit.h" />
-    <ClInclude Include="Model\frontmaps.h" />
-    <ClInclude Include="Model\infantry_units.h" />
-    <ClInclude Include="Model\infantry_weapons.h" />
-    <ClInclude Include="Model\infantry_weapons_predefined.h" />
-    <ClInclude Include="Model\terrain.h" />
-    <ClInclude Include="Model\terrain_view_charset.h" />
-    <ClInclude Include="Model\unit_view_charset.h" />
+    <ClInclude Include="Model\Hexbattlefield\HexMainMap.h" />
+    <ClInclude Include="Model\Hexbattlefield\MapCell.h" />
+    <ClInclude Include="Model\Terrains\Charsets\terrain_view_charset.h" />
+    <ClInclude Include="Model\Terrains\terrain.h" />
+    <ClInclude Include="Model\Units\abs_unit.h" />
+    <ClInclude Include="Model\Units\Charsets\unit_view_charset.h" />
+    <ClInclude Include="Model\Units\Damage\abs_damage.h" />
+    <ClInclude Include="Model\Units\Damage\infantry_weapons.h" />
+    <ClInclude Include="Model\Units\Damage\infantry_weapons_predefined.h" />
+    <ClInclude Include="Model\Units\Defences\Defences.h" />
+    <ClInclude Include="Model\Units\Defences\frontmaps.h" />
+    <ClInclude Include="Model\Units\infantry_units.h" />
     <ClInclude Include="View\FieldWidget.h" />
   </ItemGroup>
   <ItemGroup>

@@ -11,10 +11,11 @@ namespace Model
 		int tshader_id;
 		int isTexturised;
 		std::wstring texturePath;
-		terrain_view_charset(int, int, bool, std::wstring);
+		terrain_view_charset(int tt = 0, int ti = -1, bool iT = false, std::wstring nm = L"" );
 	};
 	namespace DefaultCharsets
 	{
 		extern terrain_view_charset GrassTerrainCharset;
 	};
+	
 };

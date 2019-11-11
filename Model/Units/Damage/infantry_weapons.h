@@ -13,7 +13,7 @@ namespace Model {
 	struct standard_infantry_weapon_charset
 	{
 		// Базовый набор характеристик для большинства противопехотного оружия
-		OSTR_TYPE name = L"None";	//Название
+		OSTR_TYPE name = std::wstring(L"None");	//Название
 		int amount = 10;			// Количество урона которое будет изменяться модификаторами
 		bool bulky = false;			// Неповоротливое оружие не стреляет в ответ
 		int penetration = 2;		// Бронебойность

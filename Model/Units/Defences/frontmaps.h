@@ -4,7 +4,7 @@
 #define OSTR_RETURN return sout.str();
 #define OSTR_CHTYPE wchar_t
 #endif
-#include "CubeCoords.h"
+#include "../../CubeCoords.h"
 
 /*
 Этот файл содержит карту соприкосновений для определённого юнита. Каждый юнит имеет 6 точек соприкосновения с другими

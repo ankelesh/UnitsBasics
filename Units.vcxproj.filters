@@ -25,75 +25,177 @@
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
       <Extensions>cpp;c;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
+    <Filter Include="Header Files\Model">
+      <UniqueIdentifier>{b2595166-6c49-4f87-9532-1408bacc5398}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Model\Units">
+      <UniqueIdentifier>{5050217b-fc85-4b5d-a799-2bf8ba0f12a7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Model\Units\Unit_property">
+      <UniqueIdentifier>{77c8d5d5-b501-4ea1-a426-85980f3e8933}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Model\Units\Unit_property\Damage">
+      <UniqueIdentifier>{a21e21b0-1368-4ce2-8900-848ad4271b32}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Model\Units\Unit_property\Defence">
+      <UniqueIdentifier>{90968b88-02a8-436f-84d4-4ec2a741a0a1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Model\Units\Unit_property\Charsets">
+      <UniqueIdentifier>{e5304c08-f196-451b-a7c5-918ac15ea6ee}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Model\Terrains">
+      <UniqueIdentifier>{ff4f18b5-a470-47a4-ba82-fe6196cfbec8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Model\Terrains\Charsets">
+      <UniqueIdentifier>{6bf4651f-a436-40da-9592-c0ae8a16d230}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Model\Hexfields">
+      <UniqueIdentifier>{b0a4d9e8-96f1-4b68-b0a8-0d3eb20a3239}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\View">
+      <UniqueIdentifier>{d2b6e5ca-c65d-45eb-83c6-974ba93cf0b8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Model">
+      <UniqueIdentifier>{89d654b0-17f5-4032-8625-585793525277}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\View">
+      <UniqueIdentifier>{176308c2-f7cd-4e57-bae5-0873bf4c5c1b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Model\Hexfields">
+      <UniqueIdentifier>{fbad7c7b-dcec-41d1-a44a-911d6346e748}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Model\Terrains">
+      <UniqueIdentifier>{40cc3b92-0f34-4bb9-b04b-b87e79d92775}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Model\Units">
+      <UniqueIdentifier>{711d9f74-2bf7-4e3d-8efc-9001405600bd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Model\Terrains\Charsets">
+      <UniqueIdentifier>{96335fa3-551c-441a-8cda-de29d01fa8d4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Model\Units\Property">
+      <UniqueIdentifier>{b4d1f50c-5cf8-488a-b1e9-314e89edddb1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Model\Units\Property\Damage">
+      <UniqueIdentifier>{29782acb-a82a-4bd0-a8ee-ef6a8fcc38fe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Model\Units\Property\Defence">
+      <UniqueIdentifier>{54d79b43-6e8a-4a80-aa81-fa755f1c7f2e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Model\Units\Property\Charsets">
+      <UniqueIdentifier>{967c90d6-facc-4b51-a397-af9dde0e50bc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Controller">
+      <UniqueIdentifier>{e8c3b41d-49c7-41e9-a9ec-9798549e9f3f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Model\Defences.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Units.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Model\abs_damage.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="Model\Terrains\Charsets\terrain_view_charset.cpp">
+      <Filter>Source Files\Model\Terrains\Charsets</Filter>
     </ClCompile>
-    <ClCompile Include="Model\abs_unit.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="Model\Units\abs_unit.cpp">
+      <Filter>Source Files\Model\Units</Filter>
     </ClCompile>
-    <ClCompile Include="Model\frontmaps.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="Model\Units\infantry_units.cpp">
+      <Filter>Source Files\Model\Units</Filter>
     </ClCompile>
-    <ClCompile Include="Model\infantry_weapons.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="Model\Units\Damage\abs_damage.cpp">
+      <Filter>Source Files\Model\Units\Property\Damage</Filter>
     </ClCompile>
-    <ClCompile Include="Model\infantry_weapons_predefined.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="Model\Units\Damage\infantry_weapons.cpp">
+      <Filter>Source Files\Model\Units\Property\Damage</Filter>
     </ClCompile>
-    <ClCompile Include="Model\infantry_units.cpp">
+    <ClCompile Include="Model\Units\Damage\infantry_weapons_predefined.cpp">
+      <Filter>Source Files\Model\Units\Property\Damage</Filter>
+    </ClCompile>
+    <ClCompile Include="Model\Units\Defences\frontmaps.cpp">
+      <Filter>Source Files\Model\Units\Property\Defence</Filter>
+    </ClCompile>
+    <ClCompile Include="Model\Units\Defences\Defences.cpp">
+      <Filter>Source Files\Model\Units\Property\Defence</Filter>
+    </ClCompile>
+    <ClCompile Include="Model\Units\Charsets\unit_view_charset.cpp">
+      <Filter>Source Files\Model\Units\Property\Charsets</Filter>
+    </ClCompile>
+    <ClCompile Include="Model\Terrains\terrain.cpp">
       <Filter>Generated Files</Filter>
     </ClCompile>
-    <ClCompile Include="Model\terrain_view_charset.cpp">
+    <ClCompile Include="Model\Hexbattlefield\MapCell.cpp">
       <Filter>Generated Files</Filter>
     </ClCompile>
-    <ClCompile Include="Model\unit_view_charset.cpp">
+    <ClCompile Include="Model\Hexbattlefield\HexMainMap.cpp">
+      <Filter>Generated Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Controller\SimpliestController.cpp">
+      <Filter>Generated Files</Filter>
+    </ClCompile>
+    <ClCompile Include="View\FieldWidget.cpp">
+      <Filter>Generated Files</Filter>
+    </ClCompile>
+    <ClCompile Include="View\UnitPainting\UnitPaintingFunctions.cpp">
+      <Filter>Generated Files</Filter>
+    </ClCompile>
+    <ClCompile Include="View\TerrainPainting\TerrainPaintingFunctions.cpp">
+      <Filter>Generated Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Model\Hexbattlefield\Hexagon.cpp">
       <Filter>Generated Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Model\CubeCoords.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="Model\Units\Damage\abs_damage.h">
+      <Filter>Header Files\Model\Units\Unit_property\Damage</Filter>
     </ClInclude>
-    <ClInclude Include="Model\Defences.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="Model\Units\Damage\infantry_weapons.h">
+      <Filter>Header Files\Model\Units\Unit_property\Damage</Filter>
     </ClInclude>
-    <ClInclude Include="Model\abs_damage.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="Model\Units\Damage\infantry_weapons_predefined.h">
+      <Filter>Header Files\Model\Units\Unit_property\Damage</Filter>
     </ClInclude>
-    <ClInclude Include="Model\abs_unit.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="Model\Units\Defences\Defences.h">
+      <Filter>Header Files\Model\Units\Unit_property\Defence</Filter>
     </ClInclude>
-    <ClInclude Include="Model\frontmaps.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="Model\Units\Defences\frontmaps.h">
+      <Filter>Header Files\Model\Units\Unit_property\Defence</Filter>
     </ClInclude>
-    <ClInclude Include="Model\infantry_weapons.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="Model\Units\abs_unit.h">
+      <Filter>Header Files\Model\Units</Filter>
     </ClInclude>
-    <ClInclude Include="Model\infantry_weapons_predefined.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="Model\Units\infantry_units.h">
+      <Filter>Header Files\Model\Units</Filter>
     </ClInclude>
-    <ClInclude Include="Model\unit_view_charset.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="Model\Terrains\terrain.h">
+      <Filter>Header Files\Model\Terrains</Filter>
     </ClInclude>
-    <ClInclude Include="Model\infantry_units.h">
-      <Filter>Generated Files</Filter>
+    <ClInclude Include="Model\Terrains\Charsets\terrain_view_charset.h">
+      <Filter>Header Files\Model\Terrains\Charsets</Filter>
     </ClInclude>
-    <ClInclude Include="Model\terrain.h">
-      <Filter>Generated Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Model\terrain_view_charset.h">
-      <Filter>Generated Files</Filter>
+    <ClInclude Include="Model\Hexbattlefield\MapCell.h">
+      <Filter>Header Files\Model\Hexfields</Filter>
     </ClInclude>
     <ClInclude Include="View\FieldWidget.h">
+      <Filter>Header Files\View</Filter>
+    </ClInclude>
+    <ClInclude Include="Model\CubeCoords.h">
+      <Filter>Header Files\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="Model\Hexbattlefield\HexMainMap.h">
+      <Filter>Header Files\Model\Hexfields</Filter>
+    </ClInclude>
+    <ClInclude Include="Model\Units\Charsets\unit_view_charset.h">
+      <Filter>Header Files\Model\Units\Unit_property\Charsets</Filter>
+    </ClInclude>
+    <ClInclude Include="View\UnitPainting\UnitPaintingFunctions.h">
       <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="View\TerrainPainting\TerrainPaintingFunctions.h">
+      <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Model\Hexbattlefield\Hexagon.h">
+      <Filter>Header Files\Model\Hexfields</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -103,5 +205,10 @@
     <CustomBuild Include="release\moc_predefs.h.cbt">
       <Filter>Generated Files</Filter>
     </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="Controller\SimpliestController.h">
+      <Filter>Header Files\Controller</Filter>
+    </QtMoc>
   </ItemGroup>
 </Project>

@@ -4,7 +4,6 @@
 #include <exception>
 #include <sstream>
 #include <iostream>
-#define debug std::cout
 
 /*
 				This file defines template for hexagonal coordinate class
@@ -53,9 +52,9 @@
 
 namespace HexCoords {
 
-	static const double hash_multiplier_x = 300000;
-	static const double hash_multiplier_y = 40000;
-	static const double hash_multiplier_z = 10;
+	static const long long int hash_multiplier_x = 300000;
+	static const long long int hash_multiplier_y = 40000;
+	static const long long int hash_multiplier_z = 10;
 
 	class bad_coordinates_exception : std::exception
 	{

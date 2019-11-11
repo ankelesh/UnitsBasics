@@ -21,8 +21,12 @@ namespace Model {
 		return 0;
 	}
 
-	const unit_map_view_charset& Model::EGA_infantry::mapView()
+	const unit_map_view_charset& Model::EGA_infantry::mapView() const
 	{
 		return DefaultCharsets::EGA_Infantry_default_charset;
+	}
+	abs_unit* EGA_infantry::fabricate()
+	{
+		return new EGA_infantry(force, weapons, defences, frontmap, name);
 	}
 }
