@@ -28,10 +28,11 @@ namespace Model {
 		Defences defences;
 		frontmaps frontmap;
 		std::wstring name;
+		int belongsToPlayer;
 
 		virtual bool takeDamage(unsigned int dmg) = 0;
 		virtual int collectDamage(UnitPointer uptr, bool isAttacking) = 0;
-		virtual const unit_map_view_charset& mapView() const  =0;
+		virtual const unit_map_view_charset mapView() const  =0;
 		virtual abs_unit* fabricate() = 0;
 	public:
 		abs_unit();
@@ -39,7 +40,9 @@ namespace Model {
 		abs_unit(std::wistream& wsin);
 		bool applyDamageToThis(unsigned int dmg);
 		int countPureDamageTo(UnitPointer uptr, bool isAttacking);
-		const unit_map_view_charset & getViewOfThis() const;
+		int belongsTo();
+		frontmaps & getFrontmap();
+		const unit_map_view_charset getViewOfThis() const;
 		abs_unit* clone();
 	};
 }

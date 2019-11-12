@@ -4,6 +4,8 @@
 #include <QPainter>
 #include "UnitPainting/UnitPaintingFunctions.h"
 #include "TerrainPainting/TerrainPaintingFunctions.h"
+#include <QtOpenGL/QGlWidget>
+
 
 void View::FieldWidget::initializeGL()
 {
@@ -23,14 +25,14 @@ void View::FieldWidget::resizeGL(int w, int h)
 void View::FieldWidget::paintGL()
 {
 	painter->begin(this);
-	painter->setRenderHint(QPainter::Antialiasing);
-	painter->setRenderHint(QPainter::TextAntialiasing);
+	painter->setRenderHint(QPainter::Antialiasing, true);
+	painter->setRenderHint(QPainter::TextAntialiasing, true);
 	auto begin = viewMap.begin();
 	Hexagon hg;
 	while (begin != viewMap.end())
 	{
 		auto pix = begin->first.toPixel(50, true);
-		hg = Hexagon(QPoint(pix.first, pix.second), 50);
+		hg = Hexagon(QPoint(pix.first+50, pix.second+50), 50);
 		drawTerrain(begin->second.getTerrainView(), painter, hg);
 		drawUnit(begin->second.getUnitView(), painter, hg);
 		++begin;
@@ -40,4 +42,8 @@ void View::FieldWidget::paintGL()
 View::FieldWidget::FieldWidget(Model::HexViewMap& vMap, QWidget* parent)
 	: QOpenGLWidget(parent), viewMap(vMap), painter(new QPainter(this))
 {
+	QSurfaceFormat fmt;
+	fmt.setSamples(8);
+	this->setFormat(fmt);
+	
 }

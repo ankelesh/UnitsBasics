@@ -109,6 +109,19 @@ namespace Model {
 		defaultHead = Head;
 	}
 
+	frontmaps::frontmaps(const CubeDirections head, const front rF, const front rbf, const front lbf, const front lF, const front ltf, const front rtf)
+	{
+		defaultState[0] = rF;
+		defaultState[1] = rbf;
+		defaultState[2] = lbf;
+		defaultState[3] = lF;
+		defaultState[4] = ltf;
+		defaultState[5] = rtf;
+		std::copy(defaultState, defaultState + 6, currentState);
+		Head = head;
+		defaultHead = head;
+	}
+
 	void frontmaps::operator<<(const int steps)
 		// операторы сдвига вправо\влево
 	{
@@ -133,6 +146,22 @@ namespace Model {
 			return currentState[0];
 		}
 		return currentState[dir];
+	}
+	front& frontmaps::operator[](const int ind)
+	{
+		if (ind < 0 || ind > 5)
+		{
+			return currentState[0];
+		}
+		return currentState[ind];
+	}
+	const front * frontmaps::begin() const
+	{
+		return currentState;
+	}
+	const front* frontmaps::end() const
+	{
+		return currentState + 6;
 	}
 	void frontmaps::operator++()
 		// переводит карту фронтов на следущий уровень

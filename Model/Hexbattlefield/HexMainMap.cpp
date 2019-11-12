@@ -31,7 +31,7 @@ namespace Model {
 		HexMap::iterator start = begin();
 		while (start != end())
 		{
-			temp[start->first] = HexViewMapCell(start->second.getTerrain().getViewOfThis(), start->second.getUnit()->getViewOfThis());
+			temp[start->first] = start->second.makeView(0);
 			++start;
 		}
 		return temp;

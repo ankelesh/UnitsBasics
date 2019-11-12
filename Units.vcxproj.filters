@@ -132,9 +132,6 @@
     <ClCompile Include="Controller\SimpliestController.cpp">
       <Filter>Generated Files</Filter>
     </ClCompile>
-    <ClCompile Include="View\FieldWidget.cpp">
-      <Filter>Generated Files</Filter>
-    </ClCompile>
     <ClCompile Include="View\UnitPainting\UnitPaintingFunctions.cpp">
       <Filter>Generated Files</Filter>
     </ClCompile>
@@ -142,6 +139,12 @@
       <Filter>Generated Files</Filter>
     </ClCompile>
     <ClCompile Include="Model\Hexbattlefield\Hexagon.cpp">
+      <Filter>Generated Files</Filter>
+    </ClCompile>
+    <ClCompile Include="View\FieldWidget.cpp">
+      <Filter>Source Files\View</Filter>
+    </ClCompile>
+    <ClCompile Include="debugtrace.cpp">
       <Filter>Generated Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -196,6 +199,9 @@
     </ClInclude>
     <ClInclude Include="Model\Hexbattlefield\Hexagon.h">
       <Filter>Header Files\Model\Hexfields</Filter>
+    </ClInclude>
+    <ClInclude Include="debugtrace.h">
+      <Filter>Generated Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

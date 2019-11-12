@@ -39,9 +39,13 @@ namespace Model
 		frontmaps(const CubeDirections, std::vector<front> &);
 		frontmaps(const CubeDirections, front*);
 		frontmaps(const CubeDirections, std::vector<FrontOnDirection>&);
+		frontmaps(const CubeDirections head, const front rF, const front rbf, const front lbf, const front lF, const front ltf, const front rtf);
 		void operator<<(const int);
 		void operator>>(const int);
 		front & operator[](const CubeDirections);
+		front& operator[](const int);
+		const front* begin() const;
+		const front* end() const;
 		void operator++();
 		void drop();
 		void turn(const CubeDirections);

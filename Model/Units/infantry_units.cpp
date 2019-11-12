@@ -21,9 +21,10 @@ namespace Model {
 		return 0;
 	}
 
-	const unit_map_view_charset& Model::EGA_infantry::mapView() const
+	const unit_map_view_charset Model::EGA_infantry::mapView() const
 	{
-		return DefaultCharsets::EGA_Infantry_default_charset;
+		std::wstring t;
+		return unit_map_view_charset(frontmap,t, 1, 1, false,  force, 2);
 	}
 	abs_unit* EGA_infantry::fabricate()
 	{

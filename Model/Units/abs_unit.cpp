@@ -33,7 +33,17 @@ namespace Model {
 		return collectDamage(uptr, isAttacking);
 	}
 
-	const unit_map_view_charset& Model::abs_unit::getViewOfThis() const
+	int abs_unit::belongsTo()
+	{
+		return belongsToPlayer;
+	}
+
+	frontmaps & abs_unit::getFrontmap()
+	{
+		return frontmap;
+	}
+
+	const unit_map_view_charset Model::abs_unit::getViewOfThis() const
 	{
 		return mapView();
 	}

@@ -22,5 +22,8 @@ namespace Controller
 	public:
 		SimpliestController(QObject* parent);
 		void show();
+		~SimpliestController();
+	public slots:
+		void do_thing();
 	};
 }

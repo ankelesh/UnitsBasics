@@ -163,6 +163,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Controller\SimpliestController.cpp" />
+    <ClCompile Include="debugtrace.cpp" />
     <ClCompile Include="Model\Hexbattlefield\Hexagon.cpp" />
     <ClCompile Include="Model\Hexbattlefield\HexMainMap.cpp" />
     <ClCompile Include="Model\Hexbattlefield\MapCell.cpp" />
@@ -182,6 +183,7 @@
     <ClCompile Include="View\UnitPainting\UnitPaintingFunctions.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="debugtrace.h" />
     <ClInclude Include="Model\Hexbattlefield\Hexagon.h" />
     <ClInclude Include="View\TerrainPainting\TerrainPaintingFunctions.h" />
     <ClInclude Include="View\UnitPainting\UnitPaintingFunctions.h" />

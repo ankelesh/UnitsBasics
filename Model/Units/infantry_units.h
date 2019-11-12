@@ -9,7 +9,7 @@ namespace Model {
 	protected:
 		virtual bool takeDamage(unsigned int dmg) override =0;
 		virtual int collectDamage(UnitPointer uptr, bool isAttacking) override =0;
-		virtual const unit_map_view_charset& mapView() const override =0;
+		virtual const unit_map_view_charset mapView() const override =0;
 	public:
 		InfantryUnit(unsigned int f, std::vector<damagePointer>& w, Defences& def, frontmaps& fm, std::
 			wstring nm);
@@ -24,7 +24,7 @@ namespace Model {
 			wstring nm);
 		virtual bool takeDamage(unsigned int dmg) override;
 		virtual int collectDamage(UnitPointer uptr, bool isAttacking) override;
-		virtual const unit_map_view_charset& mapView() const override;
+		virtual const unit_map_view_charset mapView() const override;
 
 		// Inherited via InfantryUnit
 		virtual abs_unit* fabricate() override;
