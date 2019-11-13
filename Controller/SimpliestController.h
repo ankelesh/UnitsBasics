@@ -3,7 +3,7 @@
 #include "View/FieldWidget.h"
 #include "Model/Hexbattlefield/HexMainMap.h"
 #include <QObject>
-
+#include "Model/DataOperators/DamageDealingEngine.h"
 
 namespace Controller
 {

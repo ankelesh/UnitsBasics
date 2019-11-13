@@ -88,6 +88,21 @@
     <Filter Include="Header Files\Controller">
       <UniqueIdentifier>{e8c3b41d-49c7-41e9-a9ec-9798549e9f3f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Model\DataOperators">
+      <UniqueIdentifier>{835afdd8-1b52-4f27-afef-2389ec8782a2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\View\Shaders">
+      <UniqueIdentifier>{9abc51e5-2896-410e-a93d-7c0628ec3f1c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Model\DataOperators">
+      <UniqueIdentifier>{c772803f-85bd-4557-a223-6bada21b9865}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\View\Shaders">
+      <UniqueIdentifier>{615e922f-4b0a-4542-81ef-bafe387e847a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Controller">
+      <UniqueIdentifier>{8c871d36-cdc4-41c4-8145-995d51954020}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Units.cpp">
@@ -120,32 +135,35 @@
     <ClCompile Include="Model\Units\Charsets\unit_view_charset.cpp">
       <Filter>Source Files\Model\Units\Property\Charsets</Filter>
     </ClCompile>
-    <ClCompile Include="Model\Terrains\terrain.cpp">
-      <Filter>Generated Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Model\Hexbattlefield\MapCell.cpp">
-      <Filter>Generated Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Model\Hexbattlefield\HexMainMap.cpp">
-      <Filter>Generated Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Controller\SimpliestController.cpp">
-      <Filter>Generated Files</Filter>
-    </ClCompile>
-    <ClCompile Include="View\UnitPainting\UnitPaintingFunctions.cpp">
-      <Filter>Generated Files</Filter>
-    </ClCompile>
-    <ClCompile Include="View\TerrainPainting\TerrainPaintingFunctions.cpp">
-      <Filter>Generated Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Model\Hexbattlefield\Hexagon.cpp">
-      <Filter>Generated Files</Filter>
-    </ClCompile>
     <ClCompile Include="View\FieldWidget.cpp">
       <Filter>Source Files\View</Filter>
     </ClCompile>
+    <ClCompile Include="Model\Hexbattlefield\Hexagon.cpp">
+      <Filter>Source Files\Model\Hexfields</Filter>
+    </ClCompile>
+    <ClCompile Include="Model\Hexbattlefield\HexMainMap.cpp">
+      <Filter>Source Files\Model\Hexfields</Filter>
+    </ClCompile>
+    <ClCompile Include="Model\Hexbattlefield\MapCell.cpp">
+      <Filter>Source Files\Model\Hexfields</Filter>
+    </ClCompile>
+    <ClCompile Include="Model\Terrains\terrain.cpp">
+      <Filter>Source Files\Model\Terrains</Filter>
+    </ClCompile>
     <ClCompile Include="debugtrace.cpp">
-      <Filter>Generated Files</Filter>
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Model\DataOperators\DamageDealingEngine.cpp">
+      <Filter>Source Files\Model\DataOperators</Filter>
+    </ClCompile>
+    <ClCompile Include="View\TerrainPainting\TerrainPaintingFunctions.cpp">
+      <Filter>Source Files\View\Shaders</Filter>
+    </ClCompile>
+    <ClCompile Include="View\UnitPainting\UnitPaintingFunctions.cpp">
+      <Filter>Source Files\View\Shaders</Filter>
+    </ClCompile>
+    <ClCompile Include="Controller\SimpliestController.cpp">
+      <Filter>Source Files\Controller</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -191,17 +209,20 @@
     <ClInclude Include="Model\Units\Charsets\unit_view_charset.h">
       <Filter>Header Files\Model\Units\Unit_property\Charsets</Filter>
     </ClInclude>
-    <ClInclude Include="View\UnitPainting\UnitPaintingFunctions.h">
-      <Filter>Generated Files</Filter>
-    </ClInclude>
-    <ClInclude Include="View\TerrainPainting\TerrainPaintingFunctions.h">
-      <Filter>Generated Files</Filter>
-    </ClInclude>
     <ClInclude Include="Model\Hexbattlefield\Hexagon.h">
       <Filter>Header Files\Model\Hexfields</Filter>
     </ClInclude>
+    <ClInclude Include="Model\DataOperators\DamageDealingEngine.h">
+      <Filter>Header Files\Model\DataOperators</Filter>
+    </ClInclude>
+    <ClInclude Include="View\UnitPainting\UnitPaintingFunctions.h">
+      <Filter>Header Files\View\Shaders</Filter>
+    </ClInclude>
+    <ClInclude Include="View\TerrainPainting\TerrainPaintingFunctions.h">
+      <Filter>Header Files\View\Shaders</Filter>
+    </ClInclude>
     <ClInclude Include="debugtrace.h">
-      <Filter>Generated Files</Filter>
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

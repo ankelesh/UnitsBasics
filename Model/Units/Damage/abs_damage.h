@@ -43,7 +43,7 @@ namespace Model
 		virtual int calcnoise() = 0;	//Возвращает количество шума данного типа урона. 
 		//Можно рассчитывать его на основе урона или ещё чего-либо
 		virtual bool canRetaliate() = 0;	//Возвращает возможность контратаки
-		virtual int calcdmg(const int, const bool) = 0;	//возвращает amount. 
+		virtual unsigned int calcdmg(const unsigned int, const bool) = 0;	//возвращает amount. 
 		virtual bool canReach(const int) = 0;	//проверяет достигаемость 
 		virtual bool canPenetrate(Defences&) = 0;	//проверяет бронебойность
 		virtual double calcResist(Defences&) = 0;	//возвращает процент поглощённого урона
@@ -51,17 +51,19 @@ namespace Model
 		virtual int damageFortifications(Defences&, const bool) = 0; // возвращает урон по фортификациям
 		virtual int calcIni(const bool) = 0;		//	Возвращает инициативу
 		virtual abs_damage* fabricate() = 0;
+		virtual unsigned int getPureDamage() = 0;
 	public:
 		// Возвращает количество произведённого шума
 		int makeNoise();
 		// Возвращает количество нанесённого урона
-		int countDamage(Defences&, const int, const bool );		//  интерфейс объекта, все внешние взаимодействия только через него
+		unsigned int countDamage(Defences&, unsigned int, const bool );		//  интерфейс объекта, все внешние взаимодействия только через него
 		// Возвращает true если урон может быть нанесён на таком расстоянии
 		int inRange(const int);
 		// Возвращает инициативу этого типа урона
 		int getInitiative(const bool);
 		// возвращает итоговое количество урона по укреплениям
 		int countDamageToForts(Defences&, const bool);
+		unsigned int getNominalDamage();
 		//сериализует объект вне зависимости от его класса
 		OSTR_TYPE serialize();
 		// клонирует объект

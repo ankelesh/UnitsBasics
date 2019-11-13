@@ -2,15 +2,16 @@
 
 
 
-const double PI = 3.141592653589793238463;
+const float PI = 3.141592653589793238463;
+const float RadMult = PI / 180;
 
 QPoint	find_corner(const QPoint center, const int size,
 	const int corner_num, const bool pointy)
 {
-	float adeg = (pointy) ? 60 * corner_num - 30 : 60 * corner_num;
-	float arad = PI / 180 * adeg;
+	float arad = RadMult * ((pointy) ? 60 * corner_num - 30 : 60 * corner_num);
 	return QPoint(center.x() + size * cos(arad), center.y() + size * sin(arad));
 }
+
 int		hex_width(const int& size)
 {
 	return size * sqrt(3);

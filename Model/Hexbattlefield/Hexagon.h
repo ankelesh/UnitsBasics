@@ -1,7 +1,7 @@
 #pragma once
 #include <QPolygon>
 #include <Model/CubeCoords.h>
-
+#include <vector>
 struct Hexagon
 {
 	QPolygon polygonOfThis;

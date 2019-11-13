@@ -5,6 +5,7 @@
 #define OSTR_CHTYPE wchar_t
 #endif
 #include "../../CubeCoords.h"
+#include <qevent.h>
 
 /*
 Этот файл содержит карту соприкосновений для определённого юнита. Каждый юнит имеет 6 точек соприкосновения с другими
@@ -49,6 +50,7 @@ namespace Model
 		void operator++();
 		void drop();
 		void turn(const CubeDirections);
+		unsigned int alterDamageFromDirection(const CubeDirections dir,const unsigned int damage);
 		OSTR_TYPE serialize();
 		void deserialize(OSTR_TYPE &);
 		void deserialize(std::wistream&);

@@ -34,13 +34,18 @@ namespace Model {
 		virtual int collectDamage(UnitPointer uptr, bool isAttacking) = 0;
 		virtual const unit_map_view_charset mapView() const  =0;
 		virtual abs_unit* fabricate() = 0;
+		virtual bool checkRange(int rng) = 0;
 	public:
 		abs_unit();
 		abs_unit(std::wstring nm, unsigned int force, std::vector<damagePointer> w, Defences d, frontmaps f);
 		abs_unit(std::wistream& wsin);
 		bool applyDamageToThis(unsigned int dmg);
 		int countPureDamageTo(UnitPointer uptr, bool isAttacking);
+		std::vector<damagePointer>& getWeaponsList();
+		Defences& getDefences();
+		bool canAttackOnRange(int range);
 		int belongsTo();
+		unsigned int myForce();
 		frontmaps & getFrontmap();
 		const unit_map_view_charset getViewOfThis() const;
 		abs_unit* clone();

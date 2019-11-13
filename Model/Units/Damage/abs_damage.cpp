@@ -14,7 +14,7 @@ namespace Model
 		return calcnoise();
 	}
 
-	int Model::abs_damage::countDamage(Defences& def, const int force, const bool isAttacking)
+	unsigned int Model::abs_damage::countDamage(Defences& def, const unsigned int force, const bool isAttacking)
 		// ’ранит в себе формулу нанесени€ урона в наибольшей абстракции
 	{
 		if (canPenetrate(def))			// ≈сли можем пробить броню:
@@ -42,6 +42,11 @@ namespace Model
 		// считаем сколько урона будет нанесено укреплени€м. Ќекоторое оружие повреждает их даже в обороне.
 	{
 		return damageFortifications(def, isAttacking);
+	}
+
+	unsigned int abs_damage::getNominalDamage()
+	{
+		return getPureDamage();
 	}
 
 	OSTR_TYPE abs_damage::serialize()

@@ -17,7 +17,10 @@ namespace Controller {
 		mainMap[ICube(1, 1, -2)] = HexMapCell(terrain(), up);
 		mainMap[ICube(3, 1, -4)] = HexMapCell(terrain(), UnitPointer(up->clone()));
 		mainMap[ICube(2, 2, -4)] = HexMapCell(terrain(), UnitPointer(up->clone()));
+		DamageDealingEngine dde;
 		UnitPointer sunit(up->clone());
+		dde.processDamageBetween(up, sunit, &mainMap[ICube(1,1,-2)]);
+		statisticsPtr p = dde.takeStatistics();
 		mainMap[ICube(1, 2, -3)] = HexMapCell(terrain(), sunit);
 		mainMap[ICube(2, 0, -2)] = HexMapCell(terrain(), UnitPointer(up->clone()));
 		mainMap[ICube(2, 1, -3)] = HexMapCell(terrain());

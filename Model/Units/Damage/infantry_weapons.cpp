@@ -34,7 +34,7 @@ namespace Model {
 	{
 		return basic->bulky;
 	}
-	int  InfantryWeapons::calcdmg(const int force, const bool isAttacking)
+	unsigned int  InfantryWeapons::calcdmg(const unsigned int force, const bool isAttacking)
 		// возвращает урон по стандартной формуле. Для большинства стандартного оружия не важно, атака или оборона
 	{
 		return (int)( //округление
@@ -77,6 +77,10 @@ namespace Model {
 		// на инициативу обычного стрелкового оружия не влияет то, атакует ли отряд
 	{
 		return basic->initiative;
+	}
+	unsigned int InfantryWeapons::getPureDamage()
+	{
+		return basic->amount;
 	}
 	// конструкторы
 	InfantryWeapons::InfantryWeapons()
@@ -122,7 +126,7 @@ namespace Model {
 	}
 
 	
-	int SniperWeapons::calcdmg(const int force, const bool isAttacking)
+	unsigned int SniperWeapons::calcdmg(const unsigned int force, const bool isAttacking)
 	//подсчёт урона. Если соблюдены условия минимальной силы - урон увеличивается на 1 
 	{
 		if (minimumForce >= force)
@@ -166,7 +170,7 @@ namespace Model {
 		InfantryWeapons::deserialization(stream);
 	}
 	//--------------------------------------------------------------------------------------------------
-	int LightMachWeapons::calcdmg(const int force, const bool isAttacking)
+	unsigned int LightMachWeapons::calcdmg(const unsigned int force, const bool isAttacking)
 		// Ручные пулемёты всегда наносят полный урон если соблюдается условие минимальной силы
 	{
 		if (force >= minimumForce)

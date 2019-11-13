@@ -68,7 +68,7 @@ namespace Model {
 		virtual int calcnoise() override;	//¬озвращает количество шума данного типа урона. 
 		//ћожно рассчитывать его на основе урона или ещЄ чего-либо
 		virtual bool canRetaliate() override;	//¬озвращает возможность контратаки
-		virtual int calcdmg(const int, const bool)override;	//возвращает amount. 
+		virtual unsigned int calcdmg(const unsigned int, const bool)override;	//возвращает amount. 
 		virtual bool canReach(const int) override;	//провер€ет достигаемость 
 		virtual bool canPenetrate(Defences&) override;	//провер€ет бронебойность
 		virtual double calcResist(Defences&) override;	//возвращает процент поглощЄнного урона
@@ -76,6 +76,7 @@ namespace Model {
 		virtual int damageFortifications(Defences&, const bool) override; 
 		virtual abs_damage* fabricate()override;
 		virtual int calcIni(const bool) override;
+		virtual unsigned int getPureDamage() override;
 	public:
 		const int class_id = 1;
 		InfantryWeapons();
@@ -97,7 +98,7 @@ namespace Model {
 		virtual OSTR_TYPE serialization() override;
 		virtual void deserialization(OSTR_TYPE&) override;
 		virtual void deserialization(std::wistream&) override;
-		virtual int calcdmg(const int, const bool)override;	//возвращает amount. 
+		virtual unsigned int calcdmg(const unsigned int, const bool)override;	//возвращает amount. 
 	public:
 		const int class_id = 2;	
 		SniperWeapons();
@@ -130,7 +131,7 @@ namespace Model {
 		*/
 	protected:
 		int minimumForce;	// граница после которой урон начнЄт падать
-		virtual int calcdmg(const int, const bool) override;
+		virtual unsigned int calcdmg(const unsigned int, const bool) override;
 		abs_damage* fabricate() override;
 		virtual OSTR_TYPE serialization() override;
 		virtual void deserialization(OSTR_TYPE&) override;

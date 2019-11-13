@@ -187,6 +187,23 @@ namespace Model {
 		steps = (steps < 0) ? steps + 6 : steps;
 		operator>>(steps);
 	}
+	unsigned int frontmaps::alterDamageFromDirection(const CubeDirections dir, const unsigned int damage)
+	{
+		switch (operator[](dir))
+		{
+		case strong:
+			return damage / 2;
+		case reinforced:
+			return damage + damage / 4;
+		case unprotected:
+			return damage * 1.5;
+		case vulnerable:
+			return damage * 2;
+		case normal:
+		default:
+			return damage;
+		}
+	}
 	OSTR_TYPE frontmaps::serialize()
 	{
 		std::wostringstream sout;

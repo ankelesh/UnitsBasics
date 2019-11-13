@@ -33,9 +33,29 @@ namespace Model {
 		return collectDamage(uptr, isAttacking);
 	}
 
+	std::vector<damagePointer>& abs_unit::getWeaponsList()
+	{
+		return weapons;
+	}
+
+	Defences& abs_unit::getDefences()
+	{
+		return defences;
+	}
+
+	bool abs_unit::canAttackOnRange(int range)
+	{
+		return checkRange(range);
+	}
+
 	int abs_unit::belongsTo()
 	{
 		return belongsToPlayer;
+	}
+
+	unsigned int abs_unit::myForce()
+	{
+		return force;
 	}
 
 	frontmaps & abs_unit::getFrontmap()
