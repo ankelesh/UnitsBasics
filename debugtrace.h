@@ -175,6 +175,11 @@ public:
 	debugtrace& operator<<(const double);
 	debugtrace& operator<<(const std::exception&);
 	debugtrace& operator<<(const char);
+	debugtrace& operator<<(const QPoint&);
+	debugtrace& operator<<(const std::string&);
+	debugtrace& operator<<(const std::wstring&);
+	debugtrace& operator<<(const size_t);
+	debugtrace& operator<<(const unsigned int);
 	void changeOutputMode(const OutputMode, OutputMode[], int); // changes outmethod to corresponding
 	QString getCurrentString(); // returns outstring
 	~debugtrace() { fout.flush(); }

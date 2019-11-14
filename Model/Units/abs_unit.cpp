@@ -67,6 +67,10 @@ namespace Model {
 	{
 		return mapView();
 	}
+	const std::wstring& abs_unit::getName()
+	{
+		return name;
+	}
 	abs_unit* abs_unit::clone()
 	{
 		return fabricate();

@@ -420,4 +420,15 @@ namespace HexCoords {
 			return "None";
 		}
 	}
+	template <class Number>
+	bool checkOffsetCompatibility(std::pair<Number, Number>& pixpos, Number offsetX, Number offsetY, Number maxX, Number maxY, Number HexSize)
+	{
+		offsetX -= HexSize; offsetY -= HexSize;
+		if (pixpos.first >= offsetX && pixpos.second >= offsetY)
+		{
+			offsetX += HexSize * 2; offsetY += HexSize * 2;
+			return pixpos.first - offsetX <= maxX && pixpos.second - offsetY <= maxY;
+		}
+		return false;
+	}
 }

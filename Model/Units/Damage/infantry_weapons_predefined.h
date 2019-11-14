@@ -13,7 +13,7 @@ namespace Model
 	//------------EGA----------------------------------------------------------------------------------
 	const damagePointer EGA_SAR_2(
 		new InfantryWeapons(
-			standard_infantry_weapon_charset({ L"SAR-2", 20, false, 2, 0, 1, 8 })
+			standard_infantry_weapon_charset({ L"SAR-2", 10, false, 2, 0, 1, 8 })
 		));
 		// АКД-2 Автомат Космический Десантный - основное оружие всей пехоты Альянса Земных Государств.
 	const damagePointer EGA_SSR_2(

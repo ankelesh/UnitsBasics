@@ -173,7 +173,7 @@ namespace Model {
 	unsigned int LightMachWeapons::calcdmg(const unsigned int force, const bool isAttacking)
 		// Ручные пулемёты всегда наносят полный урон если соблюдается условие минимальной силы
 	{
-		if (force >= minimumForce)
+		if (force >= (unsigned int)minimumForce)
 			return basic->amount;
 		return (int)((double)basic->amount * ((double)force / 10));	// иначе урон режется как и всегда
 	}

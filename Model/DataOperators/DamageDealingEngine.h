@@ -8,6 +8,7 @@ namespace Model
 	typedef std::pair<unit_map_view_charset, unit_map_view_charset> ViewPair;
 	struct DamageDealingStatistics
 	{
+		bool unitDied;
 		bool targetDied;
 		ViewPair unitViews;
 		std::pair<unsigned int, unsigned int> damageDealt;
@@ -18,7 +19,6 @@ namespace Model
 	class DamageDealingEngine
 	{
 	private:
-		bool unitDied;
 		DamageDealingStatistics* statistics;
 		bool hasStatistics;
 	public:

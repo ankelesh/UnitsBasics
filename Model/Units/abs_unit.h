@@ -48,6 +48,7 @@ namespace Model {
 		unsigned int myForce();
 		frontmaps & getFrontmap();
 		const unit_map_view_charset getViewOfThis() const;
+		const std::wstring& getName();
 		abs_unit* clone();
 	};
 }

@@ -204,6 +204,36 @@ debugtrace& debugtrace::operator <<(const char c)
 	return *this;
 }
 
+debugtrace& debugtrace::operator<<(const QPoint& p)
+{
+	(*this.*outmethod)(QString::number(p.x()) + " " + QString::number(p.y()));
+	return *this;
+}
+
+debugtrace& debugtrace::operator<<(const std::string& str)
+{
+	(*this.*outmethod)(QString::fromStdString(str));
+	return *this;
+}
+
+debugtrace& debugtrace::operator<<(const std::wstring& str)
+{
+	(*this.*outmethod)(QString::fromStdWString(str));
+	return *this;
+}
+
+debugtrace& debugtrace::operator<<(const size_t sz)
+{
+	(*this.*outmethod)(QString::number(sz));
+	return *this;
+}
+
+debugtrace& debugtrace::operator<<(const unsigned int val)
+{
+	(*this.*outmethod)(QString::number(val));
+	return *this;
+}
+
 void debugtrace::changeOutputMode(const OutputMode mode, OutputMode v[], int oolen)
 {
 	switch (mode)

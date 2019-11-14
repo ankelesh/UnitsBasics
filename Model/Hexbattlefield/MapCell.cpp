@@ -72,6 +72,26 @@ namespace Model {
 			}
 		}
 	}
+	UnitPointer HexMapCell::removeUnit()
+	{
+		if (unitInside) {
+			unitInside = false;
+			UnitPointer tmp(UnitHere);
+			UnitHere = nullptr;
+			return tmp;
+		}
+		return nullptr;
+	}
+	bool HexMapCell::killUnitInside()
+	{
+		if (unitInside)
+		{
+			unitInside = false;
+			UnitHere = nullptr;
+			return true;
+		}
+		return false;
+	}
 	HexViewMapCell::HexViewMapCell(terrain_view_charset t, unit_map_view_charset u, bool isV)
 		: terrview(t), unitview(u), isVisible(isV)
 	{

@@ -178,8 +178,10 @@
     <ClCompile Include="Model\Units\Defences\Defences.cpp" />
     <ClCompile Include="Model\Units\Defences\frontmaps.cpp" />
     <ClCompile Include="Model\Units\infantry_units.cpp" />
+    <ClCompile Include="Model\Units\infantry_units_predefined.cpp" />
     <ClCompile Include="Units.cpp" />
     <ClCompile Include="View\FieldWidget.cpp" />
+    <ClCompile Include="View\OnFieldSubwidgets\AttackInfoSubwidget.cpp" />
     <ClCompile Include="View\TerrainPainting\TerrainPaintingFunctions.cpp" />
     <ClCompile Include="View\UnitPainting\UnitPaintingFunctions.cpp" />
   </ItemGroup>
@@ -187,6 +189,8 @@
     <ClInclude Include="debugtrace.h" />
     <ClInclude Include="Model\DataOperators\DamageDealingEngine.h" />
     <ClInclude Include="Model\Hexbattlefield\Hexagon.h" />
+    <ClInclude Include="Model\Units\infantry_units_predefined.h" />
+    <QtMoc Include="View\OnFieldSubwidgets\AttackInfoSubwidget.h" />
     <ClInclude Include="View\TerrainPainting\TerrainPaintingFunctions.h" />
     <ClInclude Include="View\UnitPainting\UnitPaintingFunctions.h" />
     <QtMoc Include="Controller\SimpliestController.h" />

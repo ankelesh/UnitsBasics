@@ -1,0 +1,52 @@
+turning toLefttop
+NEED to make 4 steps
+after adjusting left: 4 steps
+turning toRighttop
+NEED to make 5 steps
+after adjusting left: 5 steps
+turning toLeft
+NEED to make 3 steps
+after adjusting left: 3 steps
+turning toRight
+turning toLefttop
+NEED to make 4 steps
+after adjusting left: 4 steps
+turning toRightlow
+NEED to make 1 steps
+after adjusting left: 1 steps
+  ->Method called: processDamageBetween: squad 1 vs squad 1
+in method pdb state of variables len of arsenals:  was 2 | 2
+>>cycling: pushing 1SAR-2
+ 10 0 2 0 1 8 
+>>cycling: pushing 4 LMG-1
+ 6 0 2 0 1 5 
+>>cycling: pushing 1SAR-2
+ 10 0 2 0 1 8 
+>>cycling: pushing 4 LMG-1
+ 6 0 2 0 1 5 
+turning toRightlow
+NEED to make 2 steps
+after adjusting left: -2 steps
+cAD: Lefttop
+now frontmap: /////\\\\
+|||| ||
+ \\/  
+
+>>cycling: initiativeScale processing. Now value: 1SAR-2
+ 10 0 2 0 1 8 
+in method iscS state of variables attacker, defender, dealer, target was 1213920320121393043212139203201213930432
+damage dealt altered: now 9
+cutting damage from 1 equal to 9
+4 0 -1 2 -2 1 -1 -1 1 -2 2 -1 1 1  | 
+front on that dir: |
+NEED to make 5 steps
+damage corrected by frontmap: 11
+altering statistics: damage dealt of  attacker 11 and damage blocked by  defender0
+in method iscS state of variables nominal damage  was 10
+target died after applying 11
+statistics snapshot: Battle statistics:
+11 damage dealt by attacker
+ from them 0 damage was blocked
+0 damage dealt by defender
+From them 0 damage was blocked
+defender retaliated

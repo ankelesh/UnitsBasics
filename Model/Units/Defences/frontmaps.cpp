@@ -1,6 +1,6 @@
 #include "frontmaps.h"
 #include <iomanip>
-
+#include "debugtrace.h"
 namespace Model {
 
 
@@ -145,7 +145,11 @@ namespace Model {
 		{
 			return currentState[0];
 		}
-		return currentState[dir];
+		int steps = Head + dir;
+		detrace_METHEXPL("NEED to make " << steps << " steps");
+		steps = (steps > 5) ? steps - 6 : steps;
+		steps = (steps < 0) ? steps + 6 : steps;
+		return currentState[steps];
 	}
 	front& frontmaps::operator[](const int ind)
 	{
@@ -181,14 +185,21 @@ namespace Model {
 	void frontmaps::turn(const CubeDirections dir)
 		// поворачивает карту в нужном направлении
 	{
+		detrace_METHEXPL("turning to" << HexCoords::directionToString(dir));
 		if (Head == dir) return;
 		int steps = (Head > dir) ? Head - dir : Head + dir;
+		detrace_METHEXPL("NEED to make " << steps << " steps");
 		steps = (steps > 5) ? steps - 6 : steps;
 		steps = (steps < 0) ? steps + 6 : steps;
+		steps = (Head > dir) ? -steps : steps;
+		detrace_METHEXPL("after adjusting left: " << steps << " steps");
 		operator>>(steps);
 	}
 	unsigned int frontmaps::alterDamageFromDirection(const CubeDirections dir, const unsigned int damage)
 	{
+		detrace_METHEXPL("cutting damage from " << dir << " equal to " << damage);
+		detrace_METHEXPL(serialize());
+		detrace_METHEXPL("front on that dir: " << frontAsString(currentState[dir], L'|'));
 		switch (operator[](dir))
 		{
 		case strong:

@@ -22,8 +22,8 @@ namespace Model {
 		bool isUnitInside();
 		const terrain& getTerrain();
 		HexViewMapCell makeView(int forPlayer);
-
-
+		UnitPointer removeUnit();
+		bool killUnitInside();
 	};
 	class HexViewMapCell
 	{

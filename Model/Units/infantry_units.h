@@ -15,6 +15,12 @@ namespace Model {
 			wstring nm);
 
 
+
+		// Inherited via abs_unit
+		virtual abs_unit* fabricate() override;
+
+		virtual bool checkRange(int rng) override;
+
 	};
 
 	class EGA_infantry : public InfantryUnit

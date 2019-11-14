@@ -22,6 +22,7 @@ namespace Controller
 	public:
 		SimpliestController(QObject* parent);
 		void show();
+		void attack(ICube fcoord, ICube scoord);
 		~SimpliestController();
 	public slots:
 		void do_thing();
