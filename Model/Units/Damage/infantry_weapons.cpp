@@ -39,7 +39,7 @@ namespace Model {
 	{
 		return (int)( //округление
 			(double)basic->amount    // базовое количество
-			* ((double)force / 10)   // сила отряда 
+			* ((double)force / 100)   // сила отряда 
 			);
 	}
 	bool  InfantryWeapons::canReach(const int rng)
@@ -131,7 +131,7 @@ namespace Model {
 	{
 		if (minimumForce >= force)
 		{
-			return InfantryWeapons::calcdmg(force, isAttacking) + 1;
+			return InfantryWeapons::calcdmg(force, isAttacking) + 10;
 		}
 		return InfantryWeapons::calcdmg(force, isAttacking);
 	}
@@ -175,7 +175,7 @@ namespace Model {
 	{
 		if (force >= (unsigned int)minimumForce)
 			return basic->amount;
-		return (int)((double)basic->amount * ((double)force / 10));	// иначе урон режется как и всегда
+		return (int)((double)basic->amount * ((double)force / 100));	// иначе урон режется как и всегда
 	}
 	abs_damage* LightMachWeapons::fabricate()
 	{

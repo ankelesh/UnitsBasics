@@ -33,6 +33,8 @@ namespace Model
 			<< dataToShow->damageBlocked.second << L" damage was blocked\n"
 			<< dataToShow->damageDealt.second << L" damage dealt by defender\nFrom them "
 			<< dataToShow->damageBlocked.first << L" damage was blocked\n" <<  ((dataToShow->wasRetaliation) ? L"defender retaliated" : L"defender did not retaliated");
+		sout << L"\nViews snapshot: " << dataToShow->unitViews.first.force << L"is force of attacker and " << dataToShow->unitViews.second.force
+			<< L" is force of defender. ";
 		return sout.str();
 	}
 
@@ -88,13 +90,13 @@ namespace Model
 				damageDealt = currentWeapon.weapon->countDamage(target->getDefences(), dealer->myForce(), currentWeapon.ofAttacker);
 				detrace_METHEXPL("damage dealt altered: now " << damageDealt);
 				damageDealt = target->getFrontmap().alterDamageFromDirection(
-					(currentWeapon.ofAttacker) ? attackDirection : counterAttackDirection, damageDealt
+					(currentWeapon.ofAttacker) ? counterAttackDirection : attackDirection, damageDealt
 				);
 				detrace_METHEXPL("damage corrected by frontmap: " << damageDealt);
 				if (currentWeapon.ofAttacker)
 				{
 					statistics->damageDealt.first += damageDealt; 
-					statistics->damageBlocked.first += (currentWeapon.weapon->getNominalDamage() > damageDealt) ? (currentWeapon.weapon->getNominalDamage() - damageDealt) : 0;
+					statistics->damageBlocked.second += (currentWeapon.weapon->getNominalDamage() >= damageDealt) ? (currentWeapon.weapon->getNominalDamage() - damageDealt) : currentWeapon.weapon->getNominalDamage();
 					detrace_METHEXPL("altering statistics: damage dealt of " << " attacker " << statistics->damageDealt.first
 						<< " and damage blocked by " << " defender" << statistics->damageBlocked.second);
 					detrace_METHDATAS("iscS", "nominal damage ", << currentWeapon.weapon->getNominalDamage());
@@ -102,7 +104,7 @@ namespace Model
 				else
 				{
 					statistics->damageDealt.second += damageDealt;
-					statistics->damageBlocked.first += (currentWeapon.weapon->getNominalDamage() > damageDealt) ? (currentWeapon.weapon->getNominalDamage() - damageDealt) : 0;
+					statistics->damageBlocked.first += (currentWeapon.weapon->getNominalDamage() > damageDealt) ? (currentWeapon.weapon->getNominalDamage() - damageDealt) : currentWeapon.weapon->getNominalDamage();
 					statistics->wasRetaliation = true;
 					detrace_METHEXPL("altering statistics: damage dealt of " << " defender"<< statistics->damageDealt.second
 						<< " and damage blocked by " << " attacker " << statistics->damageBlocked.first);
@@ -127,6 +129,7 @@ namespace Model
 			}
 		}
 		statistics->unitViews = ViewPair(attacker->getViewOfThis(), defender->getViewOfThis());
+		detrace_METHEXPL("statistics snapshot: " << show(statistics));
 		return false;
 	}
 
@@ -192,5 +195,10 @@ namespace Model
 		}
 	}
 
+
+	DamageDealingStatistics::DamageDealingStatistics()
+		: unitDied(false), targetDied(false), unitViews(), damageDealt(), damageBlocked(), wasRetaliation(false)
+	{
+	}
 
 }

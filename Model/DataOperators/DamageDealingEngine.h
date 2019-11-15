@@ -14,6 +14,7 @@ namespace Model
 		std::pair<unsigned int, unsigned int> damageDealt;
 		std::pair<unsigned int, unsigned int> damageBlocked;
 		bool wasRetaliation;
+		DamageDealingStatistics();
 	};
 	typedef std::unique_ptr<DamageDealingStatistics> statisticsPtr;
 	class DamageDealingEngine

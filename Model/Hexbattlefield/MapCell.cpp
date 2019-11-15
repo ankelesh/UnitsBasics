@@ -16,11 +16,11 @@ namespace Model {
 	}
 
 	Model::HexMapCell::HexMapCell(terrain t, UnitPointer u)
-		: Terrain(t), UnitHere(UnitPointer(u->clone())), unitInside(true), player_visibility()
+		: Terrain(t), UnitHere(std::move(u)), unitInside(true), player_visibility()
 	{
-		if (u->belongsTo() >= 0 && u->belongsTo() < player_visibility.size())
+		if (UnitHere->belongsTo() >= 0 && UnitHere->belongsTo() < player_visibility.size())
 		{
-			player_visibility[u->belongsTo()] = true;
+			player_visibility[UnitHere->belongsTo()] = true;
 		}
 	}
 

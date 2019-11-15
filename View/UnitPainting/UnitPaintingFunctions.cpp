@@ -62,6 +62,7 @@ void unit_shader_1(const Model::unit_map_view_charset& uch, QPainter* painter, H
 
 void View::drawUnit(const Model::unit_map_view_charset& uch, QPainter* painter, Hexagon & hg)
 {
+	detrace_METHCALL("drawUnit of team" << uch.teamcolor << "and color "<< teamcolors.at(uch.teamcolor).red());
 	if (!uch.isTextured)
 	{
 		switch (uch.shaderId)

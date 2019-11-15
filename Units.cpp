@@ -6,6 +6,9 @@ int main(int argc, char** argv)
 {
 	using namespace Model;
 	QApplication app(argc, argv);
+
+
+
 	QSurfaceFormat form;
 	form.setProfile(QSurfaceFormat::OpenGLContextProfile::CompatibilityProfile);
 	QSurfaceFormat::setDefaultFormat(form);

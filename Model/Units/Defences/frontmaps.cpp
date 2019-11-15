@@ -145,11 +145,7 @@ namespace Model {
 		{
 			return currentState[0];
 		}
-		int steps = Head + dir;
-		detrace_METHEXPL("NEED to make " << steps << " steps");
-		steps = (steps > 5) ? steps - 6 : steps;
-		steps = (steps < 0) ? steps + 6 : steps;
-		return currentState[steps];
+		return currentState[dir];
 	}
 	front& frontmaps::operator[](const int ind)
 	{

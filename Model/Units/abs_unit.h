@@ -49,6 +49,19 @@ namespace Model {
 		frontmaps & getFrontmap();
 		const unit_map_view_charset getViewOfThis() const;
 		const std::wstring& getName();
-		abs_unit* clone();
+		abs_unit* clone(int team = -1);
+	};
+	class generateName
+	{
+	public:
+		static int counter;
+
+		generateName() {};
+		std::wstring operator()()
+		{
+			++counter;
+			return std::wstring(L"squad ") + std::to_wstring(counter);
+		}
+
 	};
 }

@@ -10,15 +10,14 @@ namespace Controller {
 		std::vector<int> arm({ 2,0,0,0,0,0 });
 		UnitPointer up(EGA_regular_infantry->clone());
 		mainMap[ICube(3,0,-3)] = HexMapCell(terrain(), UnitPointer(up->clone()));
-		mainMap[ICube(1, 1, -2)] = HexMapCell(terrain(), up);
+		mainMap[ICube(1, 1, -2)] = HexMapCell(terrain(), UnitPointer(up->clone()));
 		mainMap[ICube(3, 1, -4)] = HexMapCell(terrain(), UnitPointer(up->clone()));
 		mainMap[ICube(2, 2, -4)] = HexMapCell(terrain(), UnitPointer(up->clone()));
-		UnitPointer sunit(up->clone());
-		mainMap[ICube(1, 2, -3)] = HexMapCell(terrain(), sunit);
+		mainMap[ICube(1, 2, -3)] = HexMapCell(terrain(), UnitPointer(up->clone(1)));
 		mainMap[ICube(2, 0, -2)] = HexMapCell(terrain(), UnitPointer(up->clone()));
 		mainMap[ICube(2, 1, -3)] = HexMapCell(terrain());
 		viewMap = mainMap.createViewMap();
-		QTimer::singleShot(5000, this, SLOT(do_thing()));
+		QTimer::singleShot(3000, this, SLOT(do_thing()));
 	}
 
 	void SimpliestController::show()
@@ -41,6 +40,7 @@ namespace Controller {
 			attacker.distanceTo(defender), directionTo(attacker, defender), 
 			&mainMap[defender]);
 		statisticsPtr result = dde.takeStatistics();
+		detrace_METHEXPL("result handling: " << result->unitDied << " and " << result->targetDied);
 		if (result->unitDied)
 		{
 			mainMap[(result->targetDied)? defender: attacker].killUnitInside();
@@ -67,6 +67,7 @@ namespace Controller {
 		viewMap[ICube(1, 2, -3)].getUnitView() = mainMap[ICube(1, 2, -3)].getUnit()->getViewOfThis();
 		mainMap[ICube(2, 2, -4)].getUnit()->getFrontmap().turn(HexCoords::CubeDirections::Rigthlow);
 		viewMap[ICube(2, 2, -4)].getUnitView() = mainMap[ICube(2, 2, -4)].getUnit()->getViewOfThis();
+
 		attack(ICube(1, 1, -2), ICube(1, 2, -3));
 		innerWidget->update();
 	}

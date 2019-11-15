@@ -3,12 +3,12 @@
 namespace Model {
 
 	Model::abs_unit::abs_unit()
-		: force(0), weapons(), defences(), frontmap(), name(L"None")
+		: force(0), weapons(), defences(), frontmap(), name(L"None"), belongsToPlayer(0)
 	{
 	}
 
 	Model::abs_unit::abs_unit(std::wstring nm, unsigned int Force, std::vector<damagePointer> w, Defences d, frontmaps f)
-		: force(Force), weapons(), defences(d), frontmap(f), name(nm)
+		: force(Force), weapons(), defences(d), frontmap(f), name(nm), belongsToPlayer(0)
 	{
 		weapons.reserve(w.size());
 		std::vector<damagePointer>::iterator start = w.begin();
@@ -71,8 +71,16 @@ namespace Model {
 	{
 		return name;
 	}
-	abs_unit* abs_unit::clone()
+	abs_unit* abs_unit::clone(int team)
 	{
-		return fabricate();
+		if (team == -1)
+		{
+			return fabricate();
+		}
+		abs_unit* temp = fabricate();
+		temp->belongsToPlayer = team;
+		return temp;
 	}
+	
+	int generateName::counter = 0;
 }

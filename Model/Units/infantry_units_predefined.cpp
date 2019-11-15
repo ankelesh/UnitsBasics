@@ -9,18 +9,7 @@ namespace Model
 );
 	frontmaps EGA_REGULAR_FRONTMAP(CubeDirections::Right, front::strong, front::reinforced, front::unprotected, front::vulnerable, front::unprotected, front::reinforced);
 
-	class generateName
-	{
-	private:
-		inline static int counter =0;
-	public:
-		generateName() {};
-		std::wstring operator()()
-		{
-			++counter;
-			return std::wstring(L"squad ") + std::to_wstring(counter);
-		}
-	};
+	
 
-	const UnitPointer EGA_regular_infantry(new EGA_infantry(10U, EGA_REGULAR_WEAPONS, EGA_REGULAR_DEFENCES,EGA_REGULAR_FRONTMAP, generateName()()));
+	const UnitPointer EGA_regular_infantry(new EGA_infantry(100U, EGA_REGULAR_WEAPONS, EGA_REGULAR_DEFENCES,EGA_REGULAR_FRONTMAP, generateName()()));
 }

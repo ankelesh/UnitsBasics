@@ -40,10 +40,10 @@ namespace Model {
 	const unit_map_view_charset Model::EGA_infantry::mapView() const
 	{
 		std::wstring t;
-		return unit_map_view_charset(frontmap,t, 1, 1, false,  force, 1);
+		return unit_map_view_charset(frontmap,t, 1, 1, false,  force, belongsToPlayer);
 	}
 	abs_unit* EGA_infantry::fabricate()
 	{
-		return new EGA_infantry(force, weapons, defences, frontmap, name);
+		return new EGA_infantry(force, weapons, defences, frontmap, generateName()());
 	}
 }

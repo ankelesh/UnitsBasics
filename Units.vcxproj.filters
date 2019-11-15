@@ -171,6 +171,9 @@
     <ClCompile Include="View\OnFieldSubwidgets\AttackInfoSubwidget.cpp">
       <Filter>Generated Files</Filter>
     </ClCompile>
+    <ClCompile Include="Model\Hexbattlefield\HexaGraph.cpp">
+      <Filter>Source Files\Model\Hexfields</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Model\Units\Damage\abs_damage.h">
@@ -232,6 +235,12 @@
     </ClInclude>
     <ClInclude Include="Model\Units\infantry_units_predefined.h">
       <Filter>Header Files\Model\Units</Filter>
+    </ClInclude>
+    <ClInclude Include="Model\DataOperators\MovingEngine.h">
+      <Filter>Header Files\Model\DataOperators</Filter>
+    </ClInclude>
+    <ClInclude Include="Model\Hexbattlefield\HexaGraph.h">
+      <Filter>Header Files\Model\Hexfields</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
