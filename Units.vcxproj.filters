@@ -165,14 +165,17 @@
     <ClCompile Include="Controller\SimpliestController.cpp">
       <Filter>Source Files\Controller</Filter>
     </ClCompile>
-    <ClCompile Include="Model\Units\infantry_units_predefined.cpp">
-      <Filter>Generated Files</Filter>
-    </ClCompile>
-    <ClCompile Include="View\OnFieldSubwidgets\AttackInfoSubwidget.cpp">
-      <Filter>Generated Files</Filter>
-    </ClCompile>
     <ClCompile Include="Model\Hexbattlefield\HexaGraph.cpp">
       <Filter>Source Files\Model\Hexfields</Filter>
+    </ClCompile>
+    <ClCompile Include="Model\DataOperators\MovingEngine.cpp">
+      <Filter>Source Files\Model\DataOperators</Filter>
+    </ClCompile>
+    <ClCompile Include="Model\Units\infantry_units_predefined.cpp">
+      <Filter>Source Files\Model\Units</Filter>
+    </ClCompile>
+    <ClCompile Include="View\OnFieldSubwidgets\AttackInfoSubwidget.cpp">
+      <Filter>Source Files\View</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

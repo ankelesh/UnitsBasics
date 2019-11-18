@@ -5,6 +5,61 @@
   ->Method called: drawUnit of team0and color 140
   ->Method called: drawUnit of team0and color 140
   ->Method called: drawUnit of team0and color 140
+
+!
+
+Graph contains 7 heights
+Height  0 1 -1 
+	Has edge: ( 0 1 -1 ) -> ( 0 2 -2 ) and weight: 1
+	Has edge: ( 0 1 -1 ) -> ( 1 0 -1 ) and weight: 1
+	Has edge: ( 0 1 -1 ) -> ( 1 1 -2 ) and weight: 1
+Height  0 2 -2 
+	Has edge: ( 0 2 -2 ) -> ( 0 1 -1 ) and weight: 1
+	Has edge: ( 0 2 -2 ) -> ( 1 1 -2 ) and weight: 1
+	Has edge: ( 0 2 -2 ) -> ( 1 2 -3 ) and weight: 1
+Height  1 0 -1 
+	Has edge: ( 1 0 -1 ) -> ( 0 1 -1 ) and weight: 1
+	Has edge: ( 1 0 -1 ) -> ( 1 1 -2 ) and weight: 1
+	Has edge: ( 1 0 -1 ) -> ( 2 0 -2 ) and weight: 1
+Height  1 1 -2 
+	Has edge: ( 1 1 -2 ) -> ( 0 1 -1 ) and weight: 1
+	Has edge: ( 1 1 -2 ) -> ( 0 2 -2 ) and weight: 1
+	Has edge: ( 1 1 -2 ) -> ( 1 0 -1 ) and weight: 1
+	Has edge: ( 1 1 -2 ) -> ( 1 2 -3 ) and weight: 1
+	Has edge: ( 1 1 -2 ) -> ( 2 0 -2 ) and weight: 1
+	Has edge: ( 1 1 -2 ) -> ( 2 1 -3 ) and weight: 1
+Height  1 2 -3 
+	Has edge: ( 1 2 -3 ) -> ( 0 2 -2 ) and weight: 1
+	Has edge: ( 1 2 -3 ) -> ( 1 1 -2 ) and weight: 1
+	Has edge: ( 1 2 -3 ) -> ( 2 1 -3 ) and weight: 1
+Height  2 0 -2 
+	Has edge: ( 2 0 -2 ) -> ( 1 0 -1 ) and weight: 1
+	Has edge: ( 2 0 -2 ) -> ( 1 1 -2 ) and weight: 1
+	Has edge: ( 2 0 -2 ) -> ( 2 1 -3 ) and weight: 1
+Height  2 1 -3 
+	Has edge: ( 2 1 -3 ) -> ( 1 1 -2 ) and weight: 1
+	Has edge: ( 2 1 -3 ) -> ( 1 2 -3 ) and weight: 1
+	Has edge: ( 2 1 -3 ) -> ( 2 0 -2 ) and weight: 1
+<Graph end>
+
+Path from  1 0 -1  to  1 2 -3 
+ 1 0 -1 
+ 1 1 -2 
+ 1 2 -3 
+
+Path from  1 0 -1  to  1 2 -3 
+ 1 0 -1 
+ 1 1 -2 
+ 1 2 -3 
+!
+
+  ->Method called: drawUnit of team0and color 140
+  ->Method called: drawUnit of team1and color 7
+  ->Method called: drawUnit of team0and color 140
+  ->Method called: drawUnit of team0and color 140
+  ->Method called: drawUnit of team0and color 140
+  ->Method called: drawUnit of team0and color 140
+  ->Method called: drawUnit of team0and color 140
   ->Method called: drawUnit of team0and color 140
   ->Method called: drawUnit of team1and color 7
   ->Method called: drawUnit of team0and color 140
@@ -48,7 +103,7 @@ now frontmap: /////\\\\
 
 >>cycling: initiativeScale processing. Now value: 1SAR-2
  60 0 2 0 1 8 
-in method iscS state of variables attacker, defender, dealer, target was -1089766000-1089848208-1089766000-1089848208
+in method iscS state of variables attacker, defender, dealer, target was -1375924320-1375915104-1375924320-1375915104
 damage dealt altered: now 58
 cutting damage from 4 equal to 58
 4 0 -1 2 -2 1 -1 -1 1 -2 2 -1 1 1  | 
@@ -58,7 +113,7 @@ altering statistics: damage dealt of  attacker 29 and damage blocked by  defende
 in method iscS state of variables nominal damage  was 60
 >>cycling: initiativeScale processing. Now value: 1SAR-2
  60 0 2 0 1 8 
-in method iscS state of variables attacker, defender, dealer, target was -1089766000-1089848208-1089848208-1089766000
+in method iscS state of variables attacker, defender, dealer, target was -1375924320-1375915104-1375915104-1375924320
 damage dealt altered: now 41
 cutting damage from 1 equal to 41
 1 0 1 2 2 1 1 -1 -1 -2 -2 -1 -1 1  | 
@@ -68,7 +123,7 @@ altering statistics: damage dealt of  defender20 and damage blocked by  attacker
 in method iscS state of variables nominal damage  was 60
 >>cycling: initiativeScale processing. Now value: 4 LMG-1
  30 0 2 0 1 5 
-in method iscS state of variables attacker, defender, dealer, target was -1089766000-1089848208-1089766000-1089848208
+in method iscS state of variables attacker, defender, dealer, target was -1375924320-1375915104-1375924320-1375915104
 damage dealt altered: now 29
 cutting damage from 4 equal to 29
 4 0 -1 2 -2 1 -1 -1 1 -2 2 -1 1 1  | 
@@ -78,7 +133,7 @@ altering statistics: damage dealt of  attacker 43 and damage blocked by  defende
 in method iscS state of variables nominal damage  was 30
 >>cycling: initiativeScale processing. Now value: 4 LMG-1
  30 0 2 0 1 5 
-in method iscS state of variables attacker, defender, dealer, target was -1089766000-1089848208-1089848208-1089766000
+in method iscS state of variables attacker, defender, dealer, target was -1375924320-1375915104-1375915104-1375924320
 damage dealt altered: now 29
 cutting damage from 1 equal to 29
 1 0 1 2 2 1 1 -1 -1 -2 -2 -1 -1 1  | 
@@ -94,27 +149,6 @@ From them 56 damage was blocked
 defender retaliated
 Views snapshot: 66is force of attacker and 57 is force of defender. 
 result handling: false and false
-  ->Method called: drawUnit of team0and color 140
-  ->Method called: drawUnit of team1and color 7
-  ->Method called: drawUnit of team0and color 140
-  ->Method called: drawUnit of team0and color 140
-  ->Method called: drawUnit of team0and color 140
-  ->Method called: drawUnit of team0and color 140
-  ->Method called: drawUnit of team0and color 140
-  ->Method called: drawUnit of team0and color 140
-  ->Method called: drawUnit of team1and color 7
-  ->Method called: drawUnit of team0and color 140
-  ->Method called: drawUnit of team0and color 140
-  ->Method called: drawUnit of team0and color 140
-  ->Method called: drawUnit of team0and color 140
-  ->Method called: drawUnit of team0and color 140
-  ->Method called: drawUnit of team0and color 140
-  ->Method called: drawUnit of team1and color 7
-  ->Method called: drawUnit of team0and color 140
-  ->Method called: drawUnit of team0and color 140
-  ->Method called: drawUnit of team0and color 140
-  ->Method called: drawUnit of team0and color 140
-  ->Method called: drawUnit of team0and color 140
   ->Method called: drawUnit of team0and color 140
   ->Method called: drawUnit of team1and color 7
   ->Method called: drawUnit of team0and color 140

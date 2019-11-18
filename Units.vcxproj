@@ -165,6 +165,7 @@
     <ClCompile Include="Controller\SimpliestController.cpp" />
     <ClCompile Include="debugtrace.cpp" />
     <ClCompile Include="Model\DataOperators\DamageDealingEngine.cpp" />
+    <ClCompile Include="Model\DataOperators\MovingEngine.cpp" />
     <ClCompile Include="Model\Hexbattlefield\Hexagon.cpp" />
     <ClCompile Include="Model\Hexbattlefield\HexaGraph.cpp" />
     <ClCompile Include="Model\Hexbattlefield\HexMainMap.cpp" />

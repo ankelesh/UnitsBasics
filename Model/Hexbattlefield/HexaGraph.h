@@ -70,64 +70,8 @@ public:
 };
 
 
-std::string testGraph()
-{
-	std::map<ICube, int> coordlist;
-	coordlist.emplace(ICube(0, 0, 0), 1);
-	coordlist.emplace(ICube(-1, 0, 1), 1);
-	coordlist.emplace(ICube(1, 0, -1), 1);
-	coordlist.emplace(ICube(0, 1, -1), 1);
-	coordlist.emplace(ICube(0, -1, 1), 1);
-	coordlist.emplace(ICube(1, -1, 0), 1);
-	coordlist.emplace(ICube(-1, 1, 0), 1);
-	HexaGraph hg(&coordlist);
-	return hg.getDescription();
-}
-std::string  testGraph(std::vector<ICube> & clist)
-{
-	auto coord = clist.begin();
-	std::map<ICube, int> temp;
-	while (coord != clist.end())
-	{
-		temp.emplace(*coord, 1);
-		++coord;
-	}
-	HexaGraph hg(&temp);
-	return hg.getDescription();
-}
-std::string testBreadth(std::vector<ICube> & clist, ICube start, ICube finish)
-{
-	auto coord = clist.begin();
-	std::map<ICube, int> temp;
-	while (coord != clist.end())
-	{
-		temp.emplace(*coord, 1);
-		++coord;
-	}
-	HexaGraph hg(&temp);
-	std::ostringstream sout;
-	sout << "\nPath from " << start.toStr() << " to " << finish.toStr() << '\n';
-	for each(ICube coor in hg.BreadthFirstSearch(start, finish))
-	{
-		sout << coor.toStr() << "\n";
-	}
-	return sout.str();
-}
-std::string testDijkstra(std::vector<ICube> & clist, ICube start, ICube finish)
-{
-	auto coord = clist.begin();
-	std::map<ICube, int> temp;
-	while (coord != clist.end())
-	{
-		temp.emplace(*coord, 1);
-		++coord;
-	}
-	HexaGraph hg(&temp);
-	std::ostringstream sout;
-	sout << "\nPath from " << start.toStr() << " to " << finish.toStr() << '\n';
-	for each(ICube coor in hg.DijkstraSearch(start, finish, 3))
-	{
-		sout << coor.toStr() << "\n";
-	}
-	return sout.str();
-}
+std::string testGraph();
+std::string  testGraph(std::vector<ICube>& clist);
+std::string testBreadth(std::vector<ICube>& clist, ICube start, ICube finish);
+
+std::string testDijkstra(std::vector<ICube>& clist, ICube start, ICube finish);

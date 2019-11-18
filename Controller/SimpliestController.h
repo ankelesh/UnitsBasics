@@ -5,6 +5,15 @@
 #include <QObject>
 #include "Model/DataOperators/DamageDealingEngine.h"
 
+/*
+	Простейший из контроллеров. Используется для тестов. 
+
+
+
+*/
+
+
+
 namespace Controller
 {
 	using namespace Model;
