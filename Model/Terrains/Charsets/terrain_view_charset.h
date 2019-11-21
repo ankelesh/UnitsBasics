@@ -1,7 +1,10 @@
 #pragma once
 #include <string>
 
-
+/*
+	Charset - это набор характеристик описывающих будущий вид. Тут не содержатся отрисовывающие функции или картинки, только пути 
+	и\или настройки шейдеров
+*/
 namespace Model
 {
 	class terrain_view_charset

@@ -29,19 +29,25 @@ namespace Model
 	};
 	typedef std::unique_ptr<DamageDealingStatistics> statisticsPtr;	// уникальный поинтер на статистику. Для передачи его обязательно move'ать
 	class DamageDealingEngine
-		// 
+		// Класс механизма нанесения урона. По сути это функтор, а не полноценный класс, поэтому есть вероятность что нужно будет удалить его потом
 	{
 	private:
-		DamageDealingStatistics* statistics;
-		bool hasStatistics;
+		DamageDealingStatistics* statistics;	// поинтер на актуальную статистику. Её можно peek'нуть.
+		bool hasStatistics;						// флаг чтобы не ловить нуллпоинтеры
 	public:
-		DamageDealingEngine();
+		DamageDealingEngine();					
+		// основная функция. Её задача - посчитать урон и отдать статистику. ВНИМАНИЕ - УРОН СРАЗУ НАНОСИТСЯ. БЭКАПА НЕ ПРОИСХОДИТ
 		bool processDamageBetween(UnitPointer attacker, UnitPointer defender, int range, HexCoords::CubeDirections attackDirection, HexMapCell* mapCell);
+		// стереть статистику
 		void clear();
+		// заглядывает в статистику возвращая unitDied
 		bool isUnitDeathProcessingRequired();
+		// конструкторы копирования
 		DamageDealingEngine& operator=(DamageDealingEngine& sdde);
 		DamageDealingEngine& operator=(DamageDealingEngine&& mdde) noexcept;
+		// возвращает копию статистики
 		DamageDealingStatistics getStatistics();
+		// забирает статистику, оставляя поинтер пустым
 		statisticsPtr takeStatistics();
 		~DamageDealingEngine();
 	};

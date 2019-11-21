@@ -3,6 +3,7 @@
 
 
 class ViewCreationException : public std::exception
+	// простое исключение, которое бросается в случае если невозможно создать view
 {
 	const char msg[68] { "Error creating view! Check visibility parameters or unit existance." };
 	const char* what() { return msg; };
@@ -20,6 +21,7 @@ namespace Model {
 	{
 		if (UnitHere->belongsTo() >= 0 && UnitHere->belongsTo() < player_visibility.size())
 		{
+			// попытка выставить видимость используя юнита
 			player_visibility[UnitHere->belongsTo()] = true;
 		}
 	}
@@ -31,6 +33,7 @@ namespace Model {
 	}
 
 	const UnitPointer Model::HexMapCell::getUnit()
+		// геттер юнита. Небезопасный, его нужно проверять. Зато не бросает эксепшнов
 	{
 		if (unitInside)
 		{
@@ -57,6 +60,7 @@ namespace Model {
 			}
 			else
 			{
+				// кидает эксепшн если нет такого игрока чтобы видимость работала
 				throw ViewCreationException();
 			}
 		}
@@ -75,6 +79,7 @@ namespace Model {
 	UnitPointer HexMapCell::removeUnit()
 	{
 		if (unitInside) {
+			// затирает местный поинтер
 			unitInside = false;
 			UnitPointer tmp(UnitHere);
 			UnitHere = nullptr;

@@ -8,7 +8,7 @@
 namespace Model
 {
 	extern const UnitPointer EGA_regular_infantry;
-	extern class generateName;
-
+	//Пехота EGA эффективна на расстоянии 1.
+		
 
 }

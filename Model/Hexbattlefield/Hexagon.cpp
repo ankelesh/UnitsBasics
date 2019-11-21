@@ -12,6 +12,12 @@ QPoint	find_corner(const QPoint center, const int size,
 	return QPoint(center.x() + size * cos(arad), center.y() + size * sin(arad));
 }
 
+QPoint find_point_on(const QPoint center, const int distance, const double grades)
+{
+	double arad = RadMult * grades;
+	return QPoint(center.x() + distance * cos(arad), center.y() + distance * sin(arad));
+}
+
 int		hex_width(const int& size)
 {
 	return size * sqrt(3);
